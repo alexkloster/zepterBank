@@ -1,19 +1,25 @@
 package by.bsuir.bank.enumerated;
 
 
+import java.util.Arrays;
+
 public enum Role {
 
     ADMINISTRATOR("Администратор"),
     USER("Пользователь");
 
-    private String role;
+    private String name;
 
-    Role(String role) {
-        this.role = role;
+    Role(String name) {
+        this.name = name;
 
     }
 
-    public String getRole() {
-        return role;
+    public static Role getByName(String name) {
+        return Arrays.stream(values()).filter(s -> s.getName().equalsIgnoreCase(name)).findAny().get();
+    }
+
+    public String getName() {
+        return name;
     }
 }

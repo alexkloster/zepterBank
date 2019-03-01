@@ -1,5 +1,7 @@
 package by.bsuir.bank.enumerated;
 
+import java.util.Arrays;
+
 public enum PaymentType {
     PENALTY("Штраф"),
     TICKET("Билеты"),
@@ -8,19 +10,23 @@ public enum PaymentType {
     PHONE("Телефон"),
     OTHER("Другое");
 
-    private String type;
+    private String name;
 
-    PaymentType(String type) {
-        this.type = type;
+    PaymentType(String name) {
+        this.name = name();
     }
 
-    public String getType() {
-        return type;
+    public static PaymentType getByName(String name) {
+        return Arrays.stream(values()).filter(s -> s.getName().equalsIgnoreCase(name)).findAny().get();
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
     public String toString() {
-        return type;
+        return name;
     }
 
 }
