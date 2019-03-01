@@ -19,7 +19,7 @@ public class DepositTypeEntity {
 
     private Integer term;
 
-    private Double min_sum;
+    private Double minSum;
 
     private Boolean capitalization;
 
@@ -30,11 +30,11 @@ public class DepositTypeEntity {
     public DepositTypeEntity() {
     }
 
-    public DepositTypeEntity(String description, Double percentage, Integer term, Double min_sum, Boolean capitalization, CurrencyEntity currency) {
+    public DepositTypeEntity(String description, Double percentage, Integer term, Double minSum, Boolean capitalization, CurrencyEntity currency) {
         this.description = description;
         this.percentage = percentage;
         this.term = term;
-        this.min_sum = min_sum;
+        this.minSum = minSum;
         this.capitalization = capitalization;
         this.currency = currency;
     }
@@ -71,12 +71,12 @@ public class DepositTypeEntity {
         this.term = term;
     }
 
-    public Double getMin_sum() {
-        return min_sum;
+    public Double getMinSum() {
+        return minSum;
     }
 
-    public void setMin_sum(Double min_sum) {
-        this.min_sum = min_sum;
+    public void setMinSum(Double minSum) {
+        this.minSum = minSum;
     }
 
     public Boolean getCapitalization() {

@@ -1,4 +1,4 @@
-package by.bsuir.dao.entity.user;
+package by.bsuir.enumerated;
 
 
 public enum Role {

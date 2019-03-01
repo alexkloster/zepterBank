@@ -1,4 +1,4 @@
-package by.bsuir.dao.entity.payment;
+package by.bsuir.enumerated;
 
 public enum PaymentType {
     PENALTY("Штраф"),

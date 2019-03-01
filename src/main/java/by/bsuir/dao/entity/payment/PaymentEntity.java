@@ -3,6 +3,7 @@ package by.bsuir.dao.entity.payment;
 
 import by.bsuir.dao.entity.client.ClientEntity;
 import by.bsuir.dao.entity.user.UserEntity;
+import by.bsuir.enumerated.PaymentType;
 
 import javax.persistence.*;
 

@@ -5,7 +5,7 @@ import by.bsuir.dao.entity.client.ClientEntity;
 import by.bsuir.dao.entity.user.UserEntity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "creditType")

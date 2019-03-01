@@ -1,5 +1,7 @@
 package by.bsuir.dao.entity.user;
 
+import by.bsuir.enumerated.Role;
+
 import javax.persistence.*;
 
 @Table(name = "payment")

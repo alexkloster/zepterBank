@@ -2,7 +2,7 @@ package by.bsuir.dao.entity.client;
 
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "client")
