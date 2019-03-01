@@ -22,6 +22,14 @@ public class ClientEntity {
     public ClientEntity() {
     }
 
+    public ClientEntity(String name, Date birth, String passportSeries, Integer passportNumber, String phone, String address) {
+        this.name = name;
+        this.birth = birth;
+        this.passportSeries = passportSeries;
+        this.passportNumber = passportNumber;
+        this.phone = phone;
+        this.address = address;
+    }
 
     public long getId() {
         return id;
