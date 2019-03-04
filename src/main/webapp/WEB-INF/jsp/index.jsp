@@ -1,4 +1,3 @@
-<%@page import="by.bsuir.bank.dao.entity.user.UserEntity"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,7 +42,7 @@
 
       </div>
       <br/><br/>
-      <center><img src="/resources/images/zepter_logo_color.png" alt="Emblem" /> </center>
+        <img src="/resources/images/zepter_logo_color.png" alt="Emblem" width="413"/>
 
     </div> <!-- end of templatemo_top_panel -->
 
@@ -64,7 +63,8 @@
           <div class="box"></div> <!-- end of date box -->
 
           <div class="post_body">
-            <center><img src="/resources/images/templatemo_image_01.png" alt="Bank" /></center><p/>
+              <center><img src="/resources/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
+              <p/>
             <p><fmt:message bundle="${msgs}" key="index.hello"/>  </p>
 
           </div> <!-- end of post body -->

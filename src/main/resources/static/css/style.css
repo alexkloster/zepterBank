@@ -218,9 +218,8 @@ th{
 }
 
 #templatemo_content {
-    width: 980px;
+    width: 100%;
     margin: 0 auto;
-    background: url(images/templatemo_content_bg.jpg) center top no-repeat;
 }
 
 #templatemo_main_coontent {
@@ -258,7 +257,8 @@ th{
 
 .post_box .post_body {
     float: left;
-    width: 480px;
+    width: 90%;
+    alignment: center;
     padding: 10px 0 20px 0;
     border-bottom: 1px dashed #000;
     margin-bottom: 20px;
