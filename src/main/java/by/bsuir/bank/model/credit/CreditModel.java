@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class CreditModel {
 
-    private final long id;
+    private final Long id;
 
     private final Double sum;
 
@@ -27,7 +27,7 @@ public class CreditModel {
     private final UserModel user;
 
     @JsonCreator
-    public CreditModel(@JsonProperty("id") long id, @JsonProperty("sum") Double sum,
+    public CreditModel(@JsonProperty("id") Long id, @JsonProperty("sum") Double sum,
                        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date startDate,
                        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date endDate,
                        @JsonProperty("term") Integer term, @JsonProperty("creditType") CreditTypeModel creditType,
@@ -42,7 +42,7 @@ public class CreditModel {
         this.user = user;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

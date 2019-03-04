@@ -6,6 +6,7 @@ import by.bsuir.bank.dao.entity.user.UserEntity;
 import by.bsuir.bank.enumerated.PaymentType;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "payment")
@@ -13,7 +14,7 @@ public class PaymentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String description;
 
@@ -23,6 +24,8 @@ public class PaymentEntity {
     private Integer number;
 
     private Double sum;
+
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -35,20 +38,21 @@ public class PaymentEntity {
     public PaymentEntity() {
     }
 
-    public PaymentEntity(String description, PaymentType paymentType, Integer number, Double sum, ClientEntity client, UserEntity user) {
+    public PaymentEntity(String description, PaymentType paymentType, Integer number, Double sum, Date date, ClientEntity client, UserEntity user) {
         this.description = description;
         this.paymentType = paymentType;
         this.number = number;
         this.sum = sum;
+        this.date = date;
         this.client = client;
         this.user = user;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,6 +86,14 @@ public class PaymentEntity {
 
     public void setSum(Double sum) {
         this.sum = sum;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public ClientEntity getClient() {

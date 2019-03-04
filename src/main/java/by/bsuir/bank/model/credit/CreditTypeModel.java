@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CreditTypeModel {
 
-    private final long id;
+    private final Long id;
 
     private final String description;
 
@@ -20,7 +20,7 @@ public class CreditTypeModel {
     private final CurrencyModel currency;
 
     @JsonCreator
-    public CreditTypeModel(@JsonProperty("id") long id, @JsonProperty("description") String description,
+    public CreditTypeModel(@JsonProperty("id") Long id, @JsonProperty("description") String description,
                            @JsonProperty("percentage") Double percentage, @JsonProperty("term") Integer term,
                            @JsonProperty("minSum") Double minSum, @JsonProperty("currency") CurrencyModel currency) {
         this.id = id;
@@ -32,7 +32,7 @@ public class CreditTypeModel {
 
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

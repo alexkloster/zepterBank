@@ -6,12 +6,12 @@ import by.bsuir.bank.dao.entity.currency.CurrencyEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "creditType")
+@Table(name = "credit_type")
 public class CreditTypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String description;
 
@@ -36,11 +36,11 @@ public class CreditTypeEntity {
         this.currency = currency;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

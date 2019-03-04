@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DepositTypeModel {
 
-    private final long id;
+    private final Long id;
 
     private final String description;
 
@@ -22,7 +22,7 @@ public class DepositTypeModel {
     private final CurrencyModel currency;
 
     @JsonCreator
-    public DepositTypeModel(@JsonProperty("id") long id, @JsonProperty("description") String description,
+    public DepositTypeModel(@JsonProperty("id") Long id, @JsonProperty("description") String description,
                             @JsonProperty("percentage") Double percentage, @JsonProperty("term") Integer term,
                             @JsonProperty("minSum") Double minSum, @JsonProperty("currency") Boolean capitalization,
                             @JsonProperty("currency") CurrencyModel currency) {
@@ -35,7 +35,7 @@ public class DepositTypeModel {
         this.currency = currency;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

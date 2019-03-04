@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class DepositModel {
 
-    private final long id;
+    private final Long id;
 
     private final Double sum;
 
@@ -28,7 +28,7 @@ public class DepositModel {
     private final UserModel user;
 
     @JsonCreator
-    public DepositModel(@JsonProperty("id") long id, @JsonProperty("id") Double sum, @JsonProperty("id") Date startDate,
+    public DepositModel(@JsonProperty("id") Long id, @JsonProperty("id") Double sum, @JsonProperty("id") Date startDate,
                         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date endDate,
                         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") Integer term,
                         @JsonProperty("depositType") DepositTypeModel depositType, @JsonProperty("client") ClientModel client,
@@ -43,7 +43,7 @@ public class DepositModel {
         this.user = user;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

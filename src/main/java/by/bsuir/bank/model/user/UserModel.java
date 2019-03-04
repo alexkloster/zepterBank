@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserModel {
 
-    private final long id;
+    private final Long id;
 
     private final String login;
 
@@ -19,7 +19,7 @@ public class UserModel {
     private final Boolean submitted;
 
     @JsonCreator
-    public UserModel(@JsonProperty("id") long id, @JsonProperty("login") String login, @JsonProperty("name") String name,
+    public UserModel(@JsonProperty("id") Long id, @JsonProperty("login") String login, @JsonProperty("name") String name,
                      @JsonProperty("password") String password, @JsonProperty("role") Role role,
                      @JsonProperty("submitted") Boolean submitted) {
         this.id = id;
@@ -30,7 +30,7 @@ public class UserModel {
         this.submitted = submitted;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

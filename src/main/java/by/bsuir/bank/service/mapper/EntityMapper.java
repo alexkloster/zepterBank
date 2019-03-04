@@ -49,9 +49,9 @@ public class EntityMapper {
     }
 
     public static PaymentEntity toPaymentEntity(String description, PaymentType paymentType, Integer number, Double sum,
-                                                ClientEntity client, UserEntity user) {
+                                                Date date, ClientEntity client, UserEntity user) {
 
-        return new PaymentEntity(description, paymentType, number, sum, client, user);
+        return new PaymentEntity(description, paymentType, number, sum, date, client, user);
     }
 
     public static UserEntity toUserEntity(String login, String name, String password, Role role, Boolean submitted) {

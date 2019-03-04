@@ -82,7 +82,7 @@ public class ModelMapper {
         }
 
         return new PaymentModel(entity.getId(), entity.getDescription(), entity.getPaymentType(), entity.getNumber(),
-                entity.getSum(), toClientModel(entity.getClient()), toUserModel(entity.getUser()));
+                entity.getSum(), entity.getDate(), toClientModel(entity.getClient()), toUserModel(entity.getUser()));
     }
 
     public static UserModel toUserModel(UserEntity entity) {

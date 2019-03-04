@@ -1,15 +1,17 @@
 package by.bsuir.bank.dao.entity.user;
 
 import by.bsuir.bank.enumerated.Role;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
 
-@Table(name = "payment")
+@Entity
+@Table(name = "user")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String login;
 
@@ -25,6 +27,11 @@ public class UserEntity {
     public UserEntity() {
     }
 
+    public UserEntity(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public UserEntity(String login, String name, String password, Role role, Boolean submitted) {
         this.login = login;
         this.name = name;
@@ -33,11 +40,11 @@ public class UserEntity {
         this.submitted = submitted;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

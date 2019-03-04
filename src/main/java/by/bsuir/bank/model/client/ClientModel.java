@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class ClientModel {
 
-    private final long id;
+    private final Long id;
 
     private final String name;
 
@@ -23,7 +23,7 @@ public class ClientModel {
     private final String address;
 
     @JsonCreator
-    public ClientModel(@JsonProperty("id") long id, @JsonProperty("name") String name,
+    public ClientModel(@JsonProperty("id") Long id, @JsonProperty("name") String name,
                        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date birth,
                        @JsonProperty("passportSeries") String passportSeries,
                        @JsonProperty("passportNumber") Integer passportNumber,
@@ -37,7 +37,7 @@ public class ClientModel {
         this.address = address;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
