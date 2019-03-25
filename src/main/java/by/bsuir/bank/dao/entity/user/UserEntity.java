@@ -1,12 +1,11 @@
 package by.bsuir.bank.dao.entity.user;
 
 import by.bsuir.bank.enumerated.Role;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
 
     @Id

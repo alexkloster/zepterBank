@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 public class WebController {
@@ -22,17 +21,14 @@ public class WebController {
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
-    public String addPatient(@RequestBody UserModel user, Model model) {
-        UserModel userModel = userService.authorisation(user.getLogin(), user.getPassword());
-        model.addAttribute("user", userModel);
-        if(null == userModel.getId()) {
-            return "index";
-        }
-        return "main";
+    public String auth(@RequestParam String login, @RequestParam String password, Model model) {
+        return "redirect:/main";
     }
 
+
     @RequestMapping (value = "/setLocale")
-    public String editProcedure(@RequestBody String locale, Model model){
+    @ResponseBody
+    public String setLocale(@RequestBody String locale, Model model) {
         model.addAttribute("locale", locale);
         if(model.asMap().get("user") == null) {
             return "index";
@@ -40,6 +36,11 @@ public class WebController {
         else {
             return "index";
         }
+    }
+
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String main(Model model) {
+        return "main";
     }
 
     @RequestMapping("/index")

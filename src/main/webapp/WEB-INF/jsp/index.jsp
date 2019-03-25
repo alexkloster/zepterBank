@@ -76,15 +76,19 @@
       <div id="side_column">
 
         <form id="EnterUser" >
-          <input type="hidden" name="command" value="EnterUser" />
           <div class="side_column_section">
             <h3><fmt:message bundle="${msgs}" key="user.autoriz"/></h3>
-            <h4><fmt:message bundle="${msgs}" key="user.login"/></h4><input class="form-control" id="login" pattern="[a-zA-Z0-9\s]+" type="text" required ><br/>
-            <h4><fmt:message bundle="${msgs}" key="user.password"/></h4><input class="form-control" id="password" type="password" required ><br/>
+            <h4><fmt:message bundle="${msgs}" key="user.login"/></h4><input class="form-control" name="login"
+                                                                            pattern="[a-zA-Z0-9\s]+" type="text"
+                                                                            required><br/>
+            <h4><fmt:message bundle="${msgs}" key="user.password"/></h4><input class="form-control" name="password"
+                                                                               type="password" required><br/>
 
 
-            <input type="button" class="btn btn-secondary" value="<fmt:message bundle="${msgs}" key="user.regist"/>" onclick="register()">
-            <p><input type="button" class="btn btn-secondary" value="<fmt:message bundle="${msgs}" key="user.enter"/>" onclick="authorization()"></p>
+            <input type="submit" class="btn btn-secondary" value="<fmt:message bundle="${msgs}" key="user.regist"/>"
+                   formaction="/authorization" formmethod="post">
+            <p><input type="submit" class="btn btn-secondary" value="<fmt:message bundle="${msgs}" key="user.enter"/>"
+                      formaction="/authorization" formmethod="post"></p>
             <br/>
             <h3>
               <c:if test="${user != null && user.id!=null}">
