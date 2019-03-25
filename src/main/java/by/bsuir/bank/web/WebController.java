@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class WebController {
@@ -16,13 +18,29 @@ public class WebController {
     private final UserService userService;
 
     @Autowired
+    private HttpServletRequest request;
+
+    @Autowired
     public WebController(UserService userService) {
         this.userService = userService;
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.POST)
     public String auth(@RequestParam String login, @RequestParam String password, Model model) {
-        return "redirect:/main";
+        UserModel user = userService.authorisation(login, password);
+        if (user.getId() != null) {
+            request.getSession().setAttribute("user", user);
+            model.addAttribute("user", user);
+            return "redirect:/main";
+        } else {
+            model.addAttribute("error", user);
+            return "index";
+        }
+    }
+
+    @RequestMapping(value = "/registration")
+    public String registration(Model model) {
+        return "registration";
     }
 
 
