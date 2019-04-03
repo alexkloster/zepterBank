@@ -6,9 +6,8 @@ import by.bsuir.bank.model.user.UserModel;
 import by.bsuir.bank.service.mapper.EntityMapper;
 import by.bsuir.bank.service.mapper.ModelMapper;
 import by.bsuir.bank.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,6 +34,17 @@ public class UserServiceImpl implements UserService{
 
         userRepository.save(userEntity);
         return ModelMapper.toUserModel(userEntity);
+    }
+
+    @Override
+    public UserEntity registration(UserEntity userEntity) {
+
+        if (userRepository.countByLogin(userEntity.getLogin()) > 0) {
+            return null;
+        }
+
+        userRepository.save(userEntity);
+        return userEntity;
     }
 
     @Override

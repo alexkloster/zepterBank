@@ -53,20 +53,23 @@
 
     </div>
     <div class="col3">
-        <div class="col-md-5">
+        <div class="col-md-8" align="right">
             <form id="EnterUser">
                 <fieldset>
-                    <p class="text-uppercase"><fmt:message bundle="${msgs}" key="user.autoriz"/></p>
+                    <p class="text-uppercase" align="center"><fmt:message bundle="${msgs}" key="user.autoriz"/></p>
                     <input type="text" name="login" id="login" class="form-control input-lg" required
                            pattern="[a-zA-Z0-9\s]+" placeholder="<fmt:message bundle="${msgs}" key="user.login"/>">
+                    <br/>
                     <input type="password" name="password" id="password" class="form-control input-lg" required
                            placeholder="<fmt:message bundle="${msgs}" key="user.password"/>">
-                    <input type="submit" class="btn btn-md" value="<fmt:message bundle="${msgs}" key="user.enter"/>"
+                    <input type="submit" class="btn btn-md" align="right"
+                           value="<fmt:message bundle="${msgs}" key="user.enter"/>"
                            formaction="/authorization" formmethod="post">
+                    <input type="submit" class="btn btn-md" align="left" value="<fmt:message
+                            bundle="${msgs}" key="user.regist"/>" formaction="/registration" formmethod="post">
                 </fieldset>
             </form>
-            <a href="<fmt:message bundle="${jsp}" key="jsp.registration"/>" class="btn btn-secondary"><fmt:message
-                    bundle="${msgs}" key="user.regist"/></a>
+
             <c:if test="${not empty error}">
                 <c:out value="ERROR"/>
             </c:if>

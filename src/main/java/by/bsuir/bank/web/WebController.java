@@ -1,6 +1,8 @@
 package by.bsuir.bank.web;
 
 
+import by.bsuir.bank.dao.entity.user.UserEntity;
+import by.bsuir.bank.enumerated.Role;
 import by.bsuir.bank.model.user.UserModel;
 import by.bsuir.bank.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,26 @@ public class WebController {
 
     @RequestMapping(value = "/registration")
     public String registration(Model model) {
+
+        return "registration";
+    }
+
+    @RequestMapping(value = "/register")
+    public String register(@RequestParam String name, @RequestParam String login, @RequestParam String password,
+                           @RequestParam String password_repeat, Model model) {
+
+
+        if (password != null && !password.equals(password_repeat)) {
+            model.addAttribute("error", "Password!!!");
+        } else {
+            UserEntity user = new UserEntity(name, login, password, Role.USER, false);
+            user = userService.registration(user);
+            if (user == null) {
+                model.addAttribute("error", "login!!!");
+            } else {
+                model.addAttribute("success", "success!!!");
+            }
+        }
         return "registration";
     }
 
@@ -63,7 +85,10 @@ public class WebController {
 
     @RequestMapping("/index")
     public String procedures(Model model){
-        model.addAttribute("user", new UserModel(null,null,null,null,null, false));
-        return "index";
+        if (request.getSession().getAttribute("user") != null) {
+            return "redirect:/main";
+        } else {
+            return "index";
+        }
     }
 }

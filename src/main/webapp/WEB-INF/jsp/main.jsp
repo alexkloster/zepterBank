@@ -1,159 +1,56 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: alexanderkloster
-  Date: 3/2/19
-  Time: 1:55 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setBundle basename="message" var="msgs" />
+<c:if test="${empty sessionScope.locale}">
+    <c:set var="locale" value="ru" scope="session"/>
+</c:if>
+<fmt:setLocale value="${locale}" scope="session"/>
+<fmt:setBundle basename="message" var="msgs"/>
+<fmt:setBundle basename="jsp" var="jsp"/>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title></title>
-    <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="jquerycssmenu.css" />
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
-<div id="templatemo_top_panel_wrapper_outter">
-    <div id="templatemo_top_panel_wrapper_inner">
-        <div id="templatemo_top_panel">
-            <div id="templatemo_menu">
+<div class="header">
+    <ul>
+        <li><a href=<fmt:message bundle="${jsp}" key="jsp.index"/>><fmt:message bundle="${msgs}" key="menu.main"/></a>
+        </li>
+        <li><a href=<fmt:message bundle="${jsp}" key="jsp.about"/>><fmt:message bundle="${msgs}" key="menu.about"/></a>
+        </li>
+        <li><a href=<fmt:message bundle="${jsp}" key="jsp.contacts"/>><fmt:message bundle="${msgs}"
+                                                                                   key="menu.contact"/></a></li>
+        <br/><br/>
+        <img src="/resources/images/zepter_logo_color.png" alt="Emblem" width="413"/>
+    </ul>
+</div>
 
-                <div id="myjquerymenu" class="jquerycssmenu">
-                    <ul>
-                        <li><a href=<fmt:message bundle="${msgs}" key="jsp.userPage"/>><fmt:message bundle="${msgs}" key="menu.main"/></a></li>
-                        <li><a href=<fmt:message bundle="${msgs}" key="jsp.number"/>><fmt:message bundle="${msgs}" key="menu.information.number"/></a></li>
-                        <li><a href="Servlet?command=NewBooking"><fmt:message bundle="${msgs}" key="menu.booking"/></a></li>
-                        <li><a href=<fmt:message bundle="${msgs}" key="jsp.userOffice"/>><fmt:message bundle="${msgs}" key="menu.personal"/></a></li>
-                        <li><a href=<fmt:message bundle="${msgs}" key="jsp.about"/>><fmt:message bundle="${msgs}" key="menu.about"/></a></li>
-                        <li><a href=<fmt:message bundle="${msgs}" key="jsp.contacts"/>><fmt:message bundle="${msgs}" key="menu.contact"/></a></li>
-                    </ul>
-                    <br style="clear: left" />
-                </div>
+<div class="layout">
 
-            </div>
-
-            <br/><br/>
-            <center><img src="images/logo.png" alt="Emblem" /> </center>
-        </div> <!-- end of templatemo_top_panel -->
-
-    </div> <!-- end of templatemo_top_panel_wrapper_inner -->
-</div> <!-- end of  templatemo_top_panel_wrapper_outter -->
-
-<div id="templatemo_content_wrapper">
-
-    <div id="templatemo_content">
+    <div class="col1">
+    </div>
 
 
-        <div id="templatemo_main_content_top"></div>
-        <div id="templatemo_main_coontent">
+    <div class="col2">
 
-            <div id="main_column">
+    </div>
+    <div class="col3">
 
-                <div class="post_box">
-                    <div class="box"></div> <!-- end of date box -->
+    </div>
+</div>
 
-                    <div class="post_body">
-
-                        <center>
-                            <h3><fmt:message bundle="${msgs}" key="application.head"/></h3>
-
-                            <br/>
-                            <img src="images/booking.jpg" alt="Booking" />
-
-                            <p><fmt:message bundle="${msgs}" key="application.main"/></p>
-                        </center>
-                    </div> <!-- end of post body -->
-                </div> <!-- end of a post -->
-
-            </div> <!-- end of main column -->
-
-            <div id="side_column">
-
-                <div class="side_column_section">
-                    <h3><fmt:message bundle="${msgs}" key="application.form"/></h3>
-                    <form action="Servlet" method="get" name="controller">
-                        <input type="hidden" name="command" value="Booking" />
-                        <center>
-                            <table border="0" cellpadding="1" >
-                                <tr>
-                                    <td>
-                                        <p><fmt:message bundle="${msgs}" key="application.dateFrom"/></p>
-                                    </td>
-                                    <td>
-                                        <input name="dateFrom" size="10" type="date" required >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><fmt:message bundle="${msgs}" key="application.dateTo"/></p></td>
-                                    <td>
-                                        <input name="dateTo" size="10" type="date" required >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><fmt:message bundle="${msgs}" key="application.price"/></p>
-                                    </td>
-                                    <td>
-                                        <input name="price" size="10" pattern="[0-9]+" type="text" >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><fmt:message bundle="${msgs}" key="application.type"/></p>
-                                    </td>
-                                    <td>
-                                        <select  name="typeNumber">
-                                            <c:forEach items="${type}" var="type">
-                                                <option value="${type.id}"><c:out value="${type.type}"/></option>
-                                            </c:forEach>
-                                        </select>
-                                    </td>
-                                </tr>
-
-
-                            </table>
-                        </center>
-                        <c:if test="${error!=null}">
-                            <p><font class="error"><c:out value="${error}"/></font></p>
-                        </c:if>
-                        <div class="post_submit">
-                            <input type="submit" class="autoriz" value=<fmt:message bundle="${msgs}" key="application.add"/>>
-                        </div>
-                    </form>
-                </div>
-
-            </div> <!-- end of side column -->
-
-            <div class="cleaner"></div>
-        </div> <!-- end of main content -->
-
-    </div> <!-- templatemo_content -->
-
-</div> <!-- end of templatemo_content_wrapper -->
-
-<div id="templatemo_footer_wrapper">
-
-    <div id="templatemo_footer">
-
-        <div class="section_w550">
-
-            <div class="section_twitter twitter">
-            </div>
-
-        </div>
-
-    </div> <!-- end of templatemo_footer -->
-
-    <div class="cleaner"></div>
-</div> <!-- end of templatemo_footer_wrapper -->
 
 </body>
-</html>
