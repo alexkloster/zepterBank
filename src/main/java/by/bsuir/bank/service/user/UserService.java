@@ -1,7 +1,6 @@
 package by.bsuir.bank.service.user;
 
 import by.bsuir.bank.dao.entity.user.UserEntity;
-import by.bsuir.bank.model.user.UserModel;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -9,14 +8,14 @@ import java.util.List;
 @Transactional
 public interface UserService {
 
-    UserModel authorisation(String login, String password);
-
-    UserModel registration(UserModel userModel);
+    UserEntity authorisation(String login, String password);
 
     UserEntity registration(UserEntity userEntity);
 
 
-    void deleteUser(UserModel userModel);
+    void deleteUser(Long id);
 
-    List<UserModel> getAllUsers();
+    List<UserEntity> getAllUsers();
+
+    UserEntity findById(Long id);
 }
