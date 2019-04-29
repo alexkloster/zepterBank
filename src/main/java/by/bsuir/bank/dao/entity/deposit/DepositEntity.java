@@ -108,4 +108,18 @@ public class DepositEntity {
     public void setUser(UserEntity user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "DepositEntity{" +
+                "id=" + id +
+                ", sum=" + sum +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", term=" + term +
+                ", depositType=" + depositType +
+                ", client=" + client +
+                ", user=" + user +
+                '}';
+    }
 }

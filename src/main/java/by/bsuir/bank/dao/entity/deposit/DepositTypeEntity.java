@@ -94,4 +94,18 @@ public class DepositTypeEntity {
     public void setCurrency(CurrencyEntity currency) {
         this.currency = currency;
     }
+
+
+    @Override
+    public String toString() {
+        return "DepositTypeEntity{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", percentage=" + percentage +
+                ", term=" + term +
+                ", minSum=" + minSum +
+                ", capitalization=" + capitalization +
+                ", currency=" + currency +
+                '}';
+    }
 }

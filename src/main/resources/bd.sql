@@ -27,7 +27,7 @@ CREATE TABLE "users" (
   name character varying(127) NOT NULL,
   login character varying(127) NOT NULL,
   password character varying(127) NOT NULL,
-  role character varying(30) NOT NULL,
+  role int NOT NULL,
   submitted BOOLEAN NOT NULL DEFAULT FALSE,
 
   CONSTRAINT users_pk PRIMARY KEY (id)
@@ -137,7 +137,7 @@ CREATE TABLE payment (
 
   id bigserial NOT NULL,
   description character varying(100) NOT NULL,
-  payment_type character varying(100) NOT NULL,
+  payment_type int NOT NULL,
   number INT NOT NULL,
   sum DOUBLE PRECISION NOT NULL,
   date date NOT NULL ,

@@ -2,6 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -77,11 +79,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Последние открытые вклады пользователя ${currentUser.name}</h5>
+                            <h5>Последние вклады, открытые пользователем ${currentUser.name}</h5>
                         </div>
                         <div class="col-lg-6">
                             <div class="float-right">
-                                <a class="btn btn-primary" href="/deposit-newDeposit">Открыть депозит</a>
+                                <a class="btn btn-primary" href="/new-deposit">Открыть депозит</a>
                             </div>
                         </div>
                     </div>
@@ -98,17 +100,23 @@
                                     <th>Сумма</th>
                                     <th>Срок</th>
                                     <th>Клиент</th>
+                                    <th><i class="fa fa-info"></i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="deposit" items="${deposits}">
+                                <c:forEach var="deposit" items="${depositList}">
                                     <tr>
                                         <td>${deposit.depositType.description}</td>
-                                        <td>${deposit.startDate}</td>
-                                        <td>${deposit.endDate}</td>
+                                        <td><fmt:formatDate value="${deposit.startDate}" pattern="dd-MM-yyyy"/></td>
+                                        <td><fmt:formatDate value="${deposit.endDate}" pattern="dd-MM-yyyy"/></td>
                                         <td>${deposit.sum}</td>
                                         <td>${deposit.term}</td>
                                         <td>${deposit.client.name}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm"
+                                                    data-target="#depositInfo" data-toggle="modal"
+                                                    data-val="${deposit.id}"><i class="fa fa-info"></i></button>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -235,7 +243,7 @@
                         <c:when test="${client_mode == 'EXISTS'}">
                             <div class="row">
                                 <form class="form-horizontal col-lg-12" method="POST"
-                                      action="/payment-save-payment">
+                                      action="/save-deposit">
 
                                     <div class="row">
                                         <h4>Клиент:</h4>
@@ -293,46 +301,42 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>Платеж</h4>
+                                        <h4>Вклад</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <form:input path="payment.id" type="hidden" name="id"/>
+                                            <form:input path="deposit.id" type="hidden" name="id"/>
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Тип платежа</label>
+                                                <label class="control-label col-lg-12">Депозит</label>
                                                 <div class="col-lg-12">
-                                                    <form:select path="payment.paymentType" id="type">
-                                                        <c:forEach var="type" items="${paymentTypes}">
-                                                            <form:option value="${type}">${type}</form:option>
+                                                    <form:select path="deposit.depositType.id" id="depositTypeId">
+                                                        <c:forEach var="type" items="${depositTypeList}">
+                                                            <form:option
+                                                                    value="${type.id}">${type.description}</form:option>
                                                         </c:forEach>
                                                     </form:select>
                                                 </div>
-                                                <br>
-                                                <label class="control-label col-lg-12">Описание</label>
-                                                <div class="col-lg-12">
-                                                    <div class="form-group">
-                                                        <form:input type="text" class="form-control"
-                                                                    name="description"
-                                                                    path="payment.description"/>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <label class="control-label col-lg-10">Номер платежа</label>
-                                                <div class="col-lg-12">
-                                                    <form:input type="text" class="form-control" name="number"
-                                                                path="payment.number"/>
+                                            <label class="control-label col-lg-12">Сумма</label>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <form:input type="number" class="form-control" id="depositSumm"
+                                                                name="depositSumm"
+                                                                path="deposit.sum"
+                                                                step="100"/>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Сумма</label>
+                                                <label class="control-label col-lg-10">Срок</label>
                                                 <div class="col-lg-12">
-                                                    <form:input type="text" class="form-control" name="sum"
-                                                                path="payment.sum"/>
+                                                    <form:input type="number" class="form-control" id="depositTerm"
+                                                                name="depositTerm"
+                                                                path="deposit.term"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -424,9 +428,140 @@
     </footer>
 </div>
 
+<div class="modal fade" id="depositInfo" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Информация о вкладе</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <label class="control-label col-lg-12"><h5>Вклад</h5></label>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Описание</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositDescription"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="control-label col-lg-12"><h6>Валюта</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositCurrency"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Процент</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositPercentage"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="control-label col-lg-12"><h6>Срок</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositTerm"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Сумма</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositSum"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="control-label col-lg-12"><h6>Капитализация</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="deposiеCapitalization"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="control-label col-lg-12"><h5>Информация по текущему вкладу</h5></label>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Клиент</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositClient"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="control-label col-lg-12"><h6>Пользователь</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositUser"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Начало</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositStart" readonly="true"></span>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="control-label col-lg-12"><h6>Конец</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositEnd"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-12"><h6>Сумма</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositCurSum"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="control-label col-lg-12"><h5>Накопления</h5></label>
+                    <div class="col-lg-6">
+                        <label class="control-label col-lg-12"><h6>На текущий момент</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositCurrentProfit"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="control-label col-lg-12"><h6>Общее</h6></label>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <span id="depositProfit"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="static/js/jquery-1.11.1.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/bootstrap-input-spinner.js"></script>
+<script type="text/javascript" src="static/js/app.js"></script>
+
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
 </body>
 </html>

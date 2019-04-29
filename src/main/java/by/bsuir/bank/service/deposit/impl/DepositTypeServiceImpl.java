@@ -18,4 +18,9 @@ public class DepositTypeServiceImpl implements DepositTypeService{
     public List<DepositTypeEntity> getAllDepositTypes() {
         return depositTypeRepository.findAll();
     }
+
+    @Override
+    public DepositTypeEntity getById(Long id) {
+        return depositTypeRepository.findById(id).orElse(null);
+    }
 }
