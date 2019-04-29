@@ -86,4 +86,18 @@ public class ClientEntity {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+    @Override
+    public String toString() {
+        return "ClientEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birth=" + birth +
+                ", passportSeries='" + passportSeries + '\'' +
+                ", passportNumber=" + passportNumber +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html >
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -14,11 +15,16 @@
     <link href="static/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div role="navigation">
@@ -164,7 +170,7 @@
                                             <label class="control-label col-lg-10">Номер паспорта</label>
                                             <div class="col-lg-12">
                                                 <input type="text" class="form-control" name="passportNumber"
-                                                       value="${user.passportNumber }"/>
+                                                       value="${client.passportNumber }"/>
                                             </div>
                                         </div>
                                     </div>
@@ -180,10 +186,188 @@
                     </div>
                 </c:when>
                 <c:when test="${client_mode == 'NEW'}">
-                    NEW
+                    <div class="alert alert-info">
+                        Такого клиента нет, необходимо добавить нового.
+                    </div>
+                    <div class="row">
+                        <form class="form-horizontal col-lg-12" method="POST" action="/save-client">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-12">ФИО клиента</label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${client.name }"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-12">Дата рождения</label>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input type="date" class="form-control" name="birth"
+                                                       value="${client.birth }"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-10">Серия паспорта</label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" name="passportSeries"
+                                                   value="${client.passportSeries }"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-10">Номер паспорта</label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" name="passportNumber"
+                                                   value="${client.passportNumber }"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-10">Адрес</label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" name="address"
+                                                   value="${client.address }"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-10">Номер Телефона</label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control" name="phone"
+                                                   value="${client.phone }"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="float-right">
+                                                <input type="submit" class="btn btn-primary" value="Сохранить"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </c:when>
                 <c:when test="${client_mode == 'EXISTS'}">
-                    EXISTS
+                    <div class="row">
+                        <form class="form-horizontal col-lg-12" method="POST" action="/save-payment">
+
+                            <div class="row">
+                                <h4>Клиент:</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <form:input  path="client.id" type="hidden" name="id"/>
+                                        <label class="control-label col-lg-12">ФИО клиента</label>
+                                        <div class="col-lg-12">
+                                            <form:input type="text" class="form-control" name="name"
+                                                   path="client.name" disabled="true"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-12">Дата рождения</label>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <form:input type="text" class="form-control" name="birth"
+                                                       path="client.birth" disabled="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-10">Серия паспорта</label>
+                                        <div class="col-lg-12">
+                                            <form:input type="text" class="form-control" name="passportSeries"
+                                                   path="client.passportSeries" disabled="true"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-10">Номер паспорта</label>
+                                        <div class="col-lg-12">
+                                            <form:input type="text" class="form-control" name="passportNumber"
+                                                   path="client.passportNumber" disabled="true"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-10">Адрес</label>
+                                        <div class="col-lg-12">
+                                            <form:input type="text" class="form-control" name="address"
+                                                   path="client.address" disabled="true"/>
+                                        </div>
+                                        <br>
+                                        <label class="control-label col-lg-10">Номер Телефона</label>
+                                        <div class="col-lg-12">
+                                            <form:input type="text" class="form-control" name="phone"
+                                                   path="client.phone" disabled="true"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h4>Платеж</h4>
+                            </div>
+                            <div class="row">
+                                    <div class="col-lg-4">
+                                        <form:input  path="payment.id" type="hidden" name="id"/>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-12">Тип платежа</label>
+                                            <div class="col-lg-12">
+                                                <form:select path="payment.paymentType" id="type">
+                                                    <c:forEach var="type" items="${paymentTypes}">
+                                                        <form:option value="${type}">${type}</form:option>
+                                                    </c:forEach>
+                                                </form:select>
+                                            </div>
+                                            <br>
+                                            <label class="control-label col-lg-12">Описание</label>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <form:input type="text" class="form-control" name="description"
+                                                                path="payment.description"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-10">Номер платежа</label>
+                                            <div class="col-lg-12">
+                                                <form:input type="text" class="form-control" name="number"
+                                                      path="payment.number"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-10">Сумма</label>
+                                            <div class="col-lg-12">
+                                                <form:input type="text" class="form-control" name="sum"
+                                                       path="payment.sum"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="float-right">
+                                                <input type="submit" class="btn btn-primary" value="Сохранить"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </c:when>
             </c:choose>
 

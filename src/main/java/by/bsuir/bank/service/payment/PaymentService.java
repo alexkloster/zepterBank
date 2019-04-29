@@ -10,4 +10,6 @@ import java.util.List;
 public interface PaymentService {
 
     List<PaymentEntity> getPaymentsOfUser(UserEntity userEntity);
+
+    PaymentEntity savePayment(PaymentEntity paymentEntity);
 }

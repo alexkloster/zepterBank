@@ -19,4 +19,9 @@ public class PaymentServiceImpl implements PaymentService {
     public List<PaymentEntity> getPaymentsOfUser(UserEntity userEntity) {
         return paymentRepository.findByUser(userEntity);
     }
+
+    @Override
+    public PaymentEntity savePayment(PaymentEntity paymentEntity) {
+        return paymentRepository.save(paymentEntity);
+    }
 }

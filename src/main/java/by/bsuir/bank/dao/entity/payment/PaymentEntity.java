@@ -111,4 +111,19 @@ public class PaymentEntity {
     public void setUser(UserEntity user) {
         this.user = user;
     }
+
+
+    @Override
+    public String toString() {
+        return "PaymentEntity{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", paymentType=" + paymentType +
+                ", number=" + number +
+                ", sum=" + sum +
+                ", date=" + date +
+                ", client=" + client +
+                ", user=" + user +
+                '}';
+    }
 }
