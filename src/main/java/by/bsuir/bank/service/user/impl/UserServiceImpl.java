@@ -33,9 +33,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserEntity authorisation(String login, String password) {
-
-        UserEntity userEntity = userRepository.getByLoginAndPassword(login, password).orElseGet(()-> new UserEntity(login, password));
-
+        UserEntity userEntity = userRepository.findByLoginAndPassword(login, password).orElse(new UserEntity(login, password));
         return userEntity;
     }
 

@@ -215,10 +215,10 @@
                     </div>
                 </c:if>
                 <div class="form-group">
-                    <label class="control-label col-md-3">Username</label>
+                    <label class="control-label col-md-3">Login</label>
                     <div class="col-md-7">
-                        <input type="text" class="form-control" name="username"
-                               value="${user.username }"/>
+                        <input type="text" class="form-control" name="login"
+                               value="${user.login }"/>
                     </div>
                 </div>
                 <div class="form-group">

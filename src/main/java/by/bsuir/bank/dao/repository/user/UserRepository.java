@@ -8,16 +8,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Scanner;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     Long countByLogin(String name);
 
-    Optional<UserEntity> getByLoginAndPassword(String login, String password);
 
-//    void deleteById(Long id);
+    Optional<UserEntity> findByLoginAndPassword(String login, String password);
+
+    @Override
+    Optional<UserEntity> findById(Long aLong);
+
+    //    void deleteById(Long id);
 
     List<UserEntity> findAll();
 

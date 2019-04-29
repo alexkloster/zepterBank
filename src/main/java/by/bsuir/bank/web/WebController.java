@@ -21,6 +21,12 @@ public class WebController {
 
     @RequestMapping("/welcome")
     public String Welcome(HttpServletRequest request) {
+        if(userService.getAllUsers().size() == 0) {
+            UserEntity admin = new UserEntity("admin", "admin", "admin", Role.ADMINISTRATOR, true) ;
+            userService.registration(admin);
+            UserEntity user = new UserEntity("user", "user", "user", Role.USER, true );
+            userService.registration(user);
+        }
         if (request.getSession().getAttribute("user") != null) {
             request.setAttribute("mode", "ALL_USERS");
         }
@@ -44,12 +50,13 @@ public class WebController {
     @RequestMapping("/login-user")
     public String loginUser(@ModelAttribute UserEntity user, HttpServletRequest request) {
         UserEntity userEntity = userService.authorisation(user.getLogin(), user.getPassword());
-        if (userEntity != null) {
+        if (userEntity != null && userEntity.getRole() != null) {
             request.getSession().setAttribute("user", user);
-            System.out.println(userEntity.getRole());
             if (userEntity.getRole() == Role.USER) {
+                request.setAttribute("mode", "MODE_HOME");
                 return "userpage";
             } else {
+                request.setAttribute("mode", "MODE_HOME");
                 return "adminpage";
             }
         }
