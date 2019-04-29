@@ -35,12 +35,11 @@
 }
 
 footer {
-    font-size: 12px;
-    position: fixed;
-    height: 180px;
     bottom: 0;
-    width: 100%;
-
+    height: 5rem;
+    position: fixed; /* Фиксированное положение */
+    width: 100%; /* Ширина слоя */
+    font-size: 12px;
 }
 
 footer .undecor {
@@ -93,9 +92,15 @@ footer .undecor {
     padding: 10px;
 }
 
-.full-height {
-    height: calc(100vh - 180px);
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
 }
+.content-wrap {
+    padding-bottom: 5rem;    /* Footer height */
+}
+
 
 
 

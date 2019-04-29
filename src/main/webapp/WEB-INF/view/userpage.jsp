@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -24,461 +25,143 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div role="navigation">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-        <div class="container">
-            <a class="navbar-brand" href="/userPage">
-                <img src="static/images/logo.png" alt="" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/userPage"><i class="fa fa-home"></i> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/payment">Платежи</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/deposit">Депозиты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/credit">Кредиты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/exchange">Калькулятор валют</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">О нас</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contacts">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/welcome">Выйти</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<br>
-
-<c:choose>
-    <c:when test="${mode=='MODE_HOME' }">
-
-        <div class="container-fluid " id="homediv">
-
-            <div class="row">
-
-                <div class="jumbotron center">
-
-                    <h1 align="center">Welcome to Zepter Bank</h1>
-                    <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
-                </div>
-
-            </div>
-
-
-        </div>
-    </c:when>
-
-    <c:when test="${mode == 'MODE_PAYMENT'}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h5>Последние платежи операциониста ${currentUser.name}</h5>
-                </div>
-                <div class="col-lg-6">
-                    <div class="float-right">
-                        <a class="btn btn-primary" href="/newPayment">Новый платеж</a>
+<div class="page-container">
+    <div class="content-wrap">
+        <div role="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+                <div class="container">
+                    <a class="navbar-brand" href="/user/userPage">
+                        <img src="static/images/logo.png" alt="" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/userPage"><i class="fa fa-home"></i> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/payment">Платежи</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/deposit">Депозиты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/credit">Кредиты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/exchange">Калькулятор валют</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/about">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contacts">Контакты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/welcome">Выйти</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <br>
-            <div class="row">
-
-                <div class="jumbotron center full-height">
-
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Тип платежа</th>
-                                <th>Описание</th>
-                                <th>Номер платежа</th>
-                                <th>Сумма</th>
-                                <th>Дата</th>
-                                <th>Клиент</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="payment" items="${payments}">
-                                <tr>
-                                    <td>${payment.paymentType}</td>
-                                    <td>${payment.description}</td>
-                                    <td>${payment.number}</td>
-                                    <td>${payment.sum}</td>
-                                    <td>${payment.date}</td>
-                                    <td>${payment.client.name}</td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            </nav>
         </div>
-    </c:when>
 
-    <c:when test="${mode == 'MODE_NEW_PAYMENT'}">
+        <br>
 
-        <div class="container">
+        <c:choose>
+            <c:when test="${mode=='MODE_HOME' }">
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <h5>Новый платеж операциониста ${currentUser.name}</h5>
-                </div>
-            </div>
+                <div class="container-fluid " id="homediv">
 
-            <br>
-            <c:choose>
-                <c:when test="${client_mode == null}">
                     <div class="row">
-                        <div class="jumbotron center full-height">
-                            <form class="form-horizontal" method="POST" action="/find-client">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-12">Серия паспорта</label>
-                                            <div class="col-lg-8">
-                                                <input type="text" class="form-control" name="passportSeries"
-                                                       value="${client.passportSeries }"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-10">Номер паспорта</label>
-                                            <div class="col-lg-12">
-                                                <input type="text" class="form-control" name="passportNumber"
-                                                       value="${client.passportNumber }"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <label class="control-label col-lg-10"> </label>
-                                        <div class="form-group col-lg-12">
-                                            <input type="submit" class="btn btn-primary" value="Найти"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+
+                        <div class="jumbotron center">
+
+                            <h1 align="center">Welcome to Zepter Bank</h1>
+                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
                         </div>
-                    </div>
-                </c:when>
-                <c:when test="${client_mode == 'NEW'}">
-                    <div class="alert alert-info">
-                        Такого клиента нет, необходимо добавить нового.
-                    </div>
-                    <div class="row">
-                        <form class="form-horizontal col-lg-12" method="POST" action="/save-client">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-12">ФИО клиента</label>
-                                        <div class="col-lg-12">
-                                            <input type="text" class="form-control" name="name"
-                                                   value="${client.name }"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-12">Дата рождения</label>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <input type="date" class="form-control" name="birth"
-                                                       value="${client.birth }"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-10">Серия паспорта</label>
-                                        <div class="col-lg-12">
-                                            <input type="text" class="form-control" name="passportSeries"
-                                                   value="${client.passportSeries }"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-10">Номер паспорта</label>
-                                        <div class="col-lg-12">
-                                            <input type="text" class="form-control" name="passportNumber"
-                                                   value="${client.passportNumber }"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-10">Адрес</label>
-                                        <div class="col-lg-12">
-                                            <input type="text" class="form-control" name="address"
-                                                   value="${client.address }"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-10">Номер Телефона</label>
-                                        <div class="col-lg-12">
-                                            <input type="text" class="form-control" name="phone"
-                                                   value="${client.phone }"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <div class="float-right">
-                                                <input type="submit" class="btn btn-primary" value="Сохранить"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </c:when>
-                <c:when test="${client_mode == 'EXISTS'}">
-                    <div class="row">
-                        <form class="form-horizontal col-lg-12" method="POST" action="/save-payment">
 
-                            <div class="row">
-                                <h4>Клиент:</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <form:input  path="client.id" type="hidden" name="id"/>
-                                        <label class="control-label col-lg-12">ФИО клиента</label>
-                                        <div class="col-lg-12">
-                                            <form:input type="text" class="form-control" name="name"
-                                                   path="client.name" disabled="true"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-12">Дата рождения</label>
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <form:input type="text" class="form-control" name="birth"
-                                                       path="client.birth" disabled="true"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-10">Серия паспорта</label>
-                                        <div class="col-lg-12">
-                                            <form:input type="text" class="form-control" name="passportSeries"
-                                                   path="client.passportSeries" disabled="true"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-10">Номер паспорта</label>
-                                        <div class="col-lg-12">
-                                            <form:input type="text" class="form-control" name="passportNumber"
-                                                   path="client.passportNumber" disabled="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-lg-10">Адрес</label>
-                                        <div class="col-lg-12">
-                                            <form:input type="text" class="form-control" name="address"
-                                                   path="client.address" disabled="true"/>
-                                        </div>
-                                        <br>
-                                        <label class="control-label col-lg-10">Номер Телефона</label>
-                                        <div class="col-lg-12">
-                                            <form:input type="text" class="form-control" name="phone"
-                                                   path="client.phone" disabled="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <h4>Платеж</h4>
-                            </div>
-                            <div class="row">
-                                    <div class="col-lg-4">
-                                        <form:input  path="payment.id" type="hidden" name="id"/>
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-12">Тип платежа</label>
-                                            <div class="col-lg-12">
-                                                <form:select path="payment.paymentType" id="type">
-                                                    <c:forEach var="type" items="${paymentTypes}">
-                                                        <form:option value="${type}">${type}</form:option>
-                                                    </c:forEach>
-                                                </form:select>
-                                            </div>
-                                            <br>
-                                            <label class="control-label col-lg-12">Описание</label>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <form:input type="text" class="form-control" name="description"
-                                                                path="payment.description"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-10">Номер платежа</label>
-                                            <div class="col-lg-12">
-                                                <form:input type="text" class="form-control" name="number"
-                                                      path="payment.number"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label class="control-label col-lg-10">Сумма</label>
-                                            <div class="col-lg-12">
-                                                <form:input type="text" class="form-control" name="sum"
-                                                       path="payment.sum"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <div class="float-right">
-                                                <input type="submit" class="btn btn-primary" value="Сохранить"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </c:when>
-            </c:choose>
-
-        </div>
-    </c:when>
-
-
-    <c:when test="${mode=='MODE_UPDATE' }">
-        <div class="container text-center">
-            <h3>Update User</h3>
-            <hr>
-            <form class="form-horizontal" method="POST" action="save-user">
-                <input type="hidden" name="id" value="${user.id}"/>
-                <div class="form-group">
-                    <label class="control-label col-md-3">Name</label>
-                    <div class="col-md-7">
-                        <input type="text" class="form-control" name="name"
-                               value="${user.name}"/>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3">Login</label>
-                    <div class="col-md-7">
-                        <input type="text" class="form-control" name="login"
-                               value="${user.login}"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3">Password </label>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" name="password"
-                               value="${user.password}"/>
-                    </div>
-                </div>
-
-                <div class="form-group ">
-                    <input type="submit" class="btn btn-primary" value="Update"/>
-                </div>
-            </form>
-        </div>
-    </c:when>
-</c:choose>
-
-
-<br>
-<footer class="navbar row-fluid navbar-light bg-light">
-    <div class="container">
-        <div class="navbar-inner">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
-                                                                          href="/welcome">Цептер Банк</a>»</span>
-                    </div>
-                    <div class="foo_info">
-                        Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
-                        банковской деятельности. <br>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <h4>Информация о банке</h4>
-                    <ul class="foo_nav">
-
-                        <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
-
-                        <li><a href="/jobs/" class="undecor">Вакансии</a></li>
-
-                        <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
-
-                        <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
-
-                    </ul>
-                    <div class="social_block">
-                        <div class="social_block_grid">
-                            <a href="https://www.facebook.com/myzepterbank/" target="_blank"
-                               class="social_block_item">
-                                <img src="/static/images/social_facebook.svg" alt="facebook">
-                            </a>
-                            <a href="https://vk.com/myzepterbank" target="_blank" class="social_block_item">
-                                <img src="/static/images/social_vk.svg" alt="vk">
-                            </a>
-                            <a href="https://www.instagram.com/zepterbank/" target="_blank"
-                               class="social_block_item">
-                                <img src="/static/images/social_instagram.svg" alt="instargram">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <h4>Клиенту</h4>
-                    <ul class="foo_nav">
-
-                        <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
-
-                        <li><a href="/offices/" class="undecor">Как нас найти</a></li>
-
-                        <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
-
-                        <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
-
-                        <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
+            </c:when>
+        </c:choose>
     </div>
-</footer>
+
+
+    <br>
+    <footer class="navbar navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-inner">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
+                                                                              href="/welcome">Цептер Банк</a>»</span>
+                        </div>
+                        <div class="foo_info">
+                            Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
+                            банковской деятельности. <br>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h4>Информация о банке</h4>
+                        <ul class="foo_nav">
+
+                            <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
+
+                            <li><a href="/jobs/" class="undecor">Вакансии</a></li>
+
+                            <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
+
+                            <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
+
+                        </ul>
+                        <div class="social_block">
+                            <div class="social_block_grid">
+                                <a href="https://www.facebook.com/myzepterbank/" target="_blank"
+                                   class="social_block_item">
+                                    <img src="/static/images/social_facebook.svg" alt="facebook">
+                                </a>
+                                <a href="https://vk.com/myzepterbank" target="_blank" class="social_block_item">
+                                    <img src="/static/images/social_vk.svg" alt="vk">
+                                </a>
+                                <a href="https://www.instagram.com/zepterbank/" target="_blank"
+                                   class="social_block_item">
+                                    <img src="/static/images/social_instagram.svg" alt="instargram">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h4>Клиенту</h4>
+                        <ul class="foo_nav">
+
+                            <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
+
+                            <li><a href="/offices/" class="undecor">Как нас найти</a></li>
+
+                            <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
+
+                            <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
+
+                            <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
