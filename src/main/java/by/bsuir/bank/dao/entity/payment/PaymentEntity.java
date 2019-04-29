@@ -18,7 +18,7 @@ public class PaymentEntity {
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private PaymentType paymentType;
 
     private Integer number;

@@ -7,7 +7,9 @@ import by.bsuir.bank.service.client.ClientService;
 import by.bsuir.bank.service.mapper.EntityMapper;
 import by.bsuir.bank.service.mapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
@@ -23,4 +25,11 @@ public class ClientServiceImpl implements ClientService {
 
         return ModelMapper.toClientModel(clientEntity);
     }
+
+    @Override
+    public ClientEntity getBySeriesAndNumber(ClientEntity entity) {
+        return clientRepository.findByPassportSeriesAndPassportNumber(entity.getPassportSeries(), entity.getPassportNumber()).orElse(entity);
+    }
+
+
 }

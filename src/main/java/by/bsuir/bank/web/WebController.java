@@ -27,9 +27,6 @@ public class WebController {
             UserEntity user = new UserEntity("user", "user", "user", Role.USER, true );
             userService.registration(user);
         }
-        if (request.getSession().getAttribute("user") != null) {
-            request.setAttribute("mode", "ALL_USERS");
-        }
         request.setAttribute("mode", "MODE_HOME");
         return "welcomepage";
     }
@@ -51,7 +48,6 @@ public class WebController {
     public String loginUser(@ModelAttribute UserEntity user, HttpServletRequest request) {
         UserEntity userEntity = userService.authorisation(user.getLogin(), user.getPassword());
         if (userEntity != null && userEntity.getRole() != null) {
-            request.getSession().setAttribute("user", user);
             if (userEntity.getRole() == Role.USER) {
                 request.setAttribute("mode", "MODE_HOME");
                 return "userpage";

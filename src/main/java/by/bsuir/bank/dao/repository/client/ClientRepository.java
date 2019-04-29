@@ -12,4 +12,6 @@ public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
     @Override
     Optional<ClientEntity> findById(Long aLong);
 
+    Optional<ClientEntity> findByPassportSeriesAndPassportNumber(String series, int number);
+
 }

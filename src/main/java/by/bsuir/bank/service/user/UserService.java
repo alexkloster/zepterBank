@@ -18,4 +18,6 @@ public interface UserService {
     List<UserEntity> getAllUsers();
 
     UserEntity findById(Long id);
+
+    UserEntity getCurrentUser();
 }

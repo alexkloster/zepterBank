@@ -189,11 +189,12 @@
 </c:choose>
 
 
-</div>
 
-<footer class="navbar-fixed-bottom row-fluid navbar-light bg-light">
-    <div class="navbar-inner">
-        <div class="container">
+
+<br>
+<footer class="navbar row-fluid navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-inner">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="copy">© 2019 <span class="nowrap">ÇÀÎ «<a class="spec_decor"
@@ -257,7 +258,6 @@
         </div>
     </div>
 </footer>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -15,6 +15,8 @@ public class UserServiceImpl implements UserService{
 
     private static final Logger LOGGER = Logger.getLogger(UserServiceImpl.class);
 
+    private UserEntity currentUser = null;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -34,6 +36,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity authorisation(String login, String password) {
         UserEntity userEntity = userRepository.findByLoginAndPassword(login, password).orElse(new UserEntity(login, password));
+        if(userEntity.getId() != null) {
+            currentUser = userEntity;
+        }
         return userEntity;
     }
 
@@ -50,5 +55,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity findById(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public UserEntity getCurrentUser() {
+        return currentUser;
     }
 }

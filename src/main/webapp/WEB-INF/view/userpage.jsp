@@ -63,6 +63,7 @@
     </nav>
 </div>
 
+<br>
 
 <c:choose>
     <c:when test="${mode=='MODE_HOME' }">
@@ -82,6 +83,113 @@
 
         </div>
     </c:when>
+
+    <c:when test="${mode == 'MODE_PAYMENT'}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>Последние платежи операциониста ${currentUser.name}</h5>
+                </div>
+                <div class="col-lg-6">
+                    <div class="float-right">
+                        <a class="btn btn-primary" href="/newPayment">Новый платеж</a>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+
+                <div class="jumbotron center full-height">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Тип платежа</th>
+                                <th>Описание</th>
+                                <th>Номер платежа</th>
+                                <th>Сумма</th>
+                                <th>Дата</th>
+                                <th>Клиент</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="payment" items="${payments}">
+                                <tr>
+                                    <td>${payment.paymentType}</td>
+                                    <td>${payment.description}</td>
+                                    <td>${payment.number}</td>
+                                    <td>${payment.sum}</td>
+                                    <td>${payment.date}</td>
+                                    <td>${payment.client.name}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c:when>
+
+    <c:when test="${mode == 'MODE_NEW_PAYMENT'}">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>Новый платеж операциониста ${currentUser.name}</h5>
+                </div>
+            </div>
+
+            <br>
+            <c:choose>
+                <c:when test="${client_mode == null}">
+                    <div class="row">
+                        <div class="jumbotron center full-height">
+                            <form class="form-horizontal" method="POST" action="/find-client">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-12">Серия паспорта</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" name="passportSeries"
+                                                       value="${client.passportSeries }"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-10">Номер паспорта</label>
+                                            <div class="col-lg-12">
+                                                <input type="text" class="form-control" name="passportNumber"
+                                                       value="${user.passportNumber }"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="control-label col-lg-10"> </label>
+                                        <div class="form-group col-lg-12">
+                                            <input type="submit" class="btn btn-primary" value="Найти"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </c:when>
+                <c:when test="${client_mode == 'NEW'}">
+                    NEW
+                </c:when>
+                <c:when test="${client_mode == 'EXISTS'}">
+                    EXISTS
+                </c:when>
+            </c:choose>
+
+        </div>
+    </c:when>
+
 
     <c:when test="${mode=='MODE_UPDATE' }">
         <div class="container text-center">
@@ -120,9 +228,10 @@
 </c:choose>
 
 
-<footer class="navbar-fixed-bottom row-fluid navbar-light bg-light">
-    <div class="navbar-inner">
-        <div class="container">
+<br>
+<footer class="navbar row-fluid navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-inner">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
@@ -186,7 +295,6 @@
         </div>
     </div>
 </footer>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
