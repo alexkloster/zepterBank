@@ -25,6 +25,14 @@ $('#depositTypeId').on('change', function () {
         timeout: 120000});
 });
 
+$('#paymentTypeSelect').on('change', function () {
+
+    var combo = document.getElementById("paymentTypeSelect");
+
+    $("#paymentType").val(combo.options[combo.selectedIndex].value);
+
+});
+
 
 $('[data-toggle="modal"]').on('click', function (e) {
     var $target = $(e.target);
@@ -56,4 +64,11 @@ $('[data-toggle="modal"]').on('click', function (e) {
         }
     });
 
+});
+
+$(document).ready(function ($) {
+    $(".phone").inputmask({"mask": "+999 (99) 999-99-99"});
+    $(".passportNumber").inputmask({"mask": "9999999"});
+    $(".passportSeries").inputmask({"mask":"AA"});
+    $(".paymentNumber").inputmask({"mask":"999999"});
 });

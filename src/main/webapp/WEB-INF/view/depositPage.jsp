@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -48,25 +48,25 @@
                                 <a class="nav-link" href="/userPage"><i class="fa fa-home"></i> </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/payment">Платежи</a>
+                                <a class="nav-link" href="/payment">РџР»Р°С‚РµР¶Рё</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="/deposit">Депозиты</a>
+                                <a class="nav-link" href="/deposit">Р”РµРїРѕР·РёС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/credit">Кредиты</a>
+                                <a class="nav-link" href="/credit">РљСЂРµРґРёС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/exchange">Калькулятор валют</a>
+                                <a class="nav-link" href="/exchange">РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РІР°Р»СЋС‚</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/about">О нас</a>
+                                <a class="nav-link" href="/about">Рћ РЅР°СЃ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/contacts">Контакты</a>
+                                <a class="nav-link" href="/contacts">РљРѕРЅС‚Р°РєС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/welcome">Выйти</a>
+                                <a class="nav-link" href="/welcome">Р’С‹Р№С‚Рё</a>
                             </li>
                         </ul>
                     </div>
@@ -79,11 +79,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Последние вклады, открытые пользователем ${currentUser.name}</h5>
+                            <h5>РџРѕСЃР»РµРґРЅРёРµ РІРєР»Р°РґС‹, РѕС‚РєСЂС‹С‚С‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј ${currentUser.name}</h5>
                         </div>
                         <div class="col-lg-6">
                             <div class="float-right">
-                                <a class="btn btn-primary" href="/new-deposit">Открыть депозит</a>
+                                <a class="btn btn-primary" href="/new-deposit">РћС‚РєСЂС‹С‚СЊ РґРµРїРѕР·РёС‚</a>
                             </div>
                         </div>
                     </div>
@@ -94,12 +94,12 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Депозит</th>
-                                    <th>Дата открытия</th>
-                                    <th>Дата окончания</th>
-                                    <th>Сумма</th>
-                                    <th>Срок</th>
-                                    <th>Клиент</th>
+                                    <th>Р”РµРїРѕР·РёС‚</th>
+                                    <th>Р”Р°С‚Р° РѕС‚РєСЂС‹С‚РёСЏ</th>
+                                    <th>Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ</th>
+                                    <th>РЎСѓРјРјР°</th>
+                                    <th>РЎСЂРѕРє</th>
+                                    <th>РљР»РёРµРЅС‚</th>
                                     <th><i class="fa fa-info"></i></th>
                                 </tr>
                                 </thead>
@@ -132,7 +132,7 @@
 
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Открытие нового вклада пользователем ${currentUser.name}</h5>
+                            <h5>РћС‚РєСЂС‹С‚РёРµ РЅРѕРІРѕРіРѕ РІРєР»Р°РґР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј ${currentUser.name}</h5>
                         </div>
                     </div>
 
@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Серия паспорта</label>
+                                                <label class="control-label col-lg-12">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-8">
                                                     <input type="text" class="form-control" name="passportSeries"
                                                            value="${client.passportSeries }"/>
@@ -153,7 +153,7 @@
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="passportNumber"
                                                            value="${client.passportNumber }"/>
@@ -163,7 +163,7 @@
                                         <div class="col-lg-3">
                                             <label class="control-label col-lg-10"> </label>
                                             <div class="form-group col-lg-12">
-                                                <input type="submit" class="btn btn-primary" value="Найти"/>
+                                                <input type="submit" class="btn btn-primary" value="РќР°Р№С‚Рё"/>
                                             </div>
                                         </div>
                                     </div>
@@ -172,20 +172,20 @@
                         </c:when>
                         <c:when test="${client_mode == 'NEW'}">
                             <div class="alert alert-info">
-                                Такого клиента нет, необходимо добавить нового.
+                                РўР°РєРѕРіРѕ РєР»РёРµРЅС‚Р° РЅРµС‚, РЅРµРѕР±С…РѕРґРёРјРѕ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРіРѕ.
                             </div>
                             <div class="row">
                                 <form class="form-horizontal col-lg-12" method="POST" action="/payment-save-client">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">ФИО клиента</label>
+                                                <label class="control-label col-lg-12">Р¤РРћ РєР»РёРµРЅС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="name"
                                                            value="${client.name }"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-12">Дата рождения</label>
+                                                <label class="control-label col-lg-12">Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <input type="date" class="form-control" name="birth"
@@ -196,13 +196,13 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Серия паспорта</label>
+                                                <label class="control-label col-lg-10">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="passportSeries"
                                                            value="${client.passportSeries }"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="passportNumber"
                                                            value="${client.passportNumber }"/>
@@ -211,13 +211,13 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Адрес</label>
+                                                <label class="control-label col-lg-10">РђРґСЂРµСЃ</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="address"
                                                            value="${client.address }"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер Телефона</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РўРµР»РµС„РѕРЅР°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="phone"
                                                            value="${client.phone }"/>
@@ -231,7 +231,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="float-right">
                                                         <input type="submit" class="btn btn-primary"
-                                                               value="Сохранить"/>
+                                                               value="РЎРѕС…СЂР°РЅРёС‚СЊ"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,19 +246,19 @@
                                       action="/save-deposit">
 
                                     <div class="row">
-                                        <h4>Клиент:</h4>
+                                        <h4>РљР»РёРµРЅС‚:</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <form:input path="client.id" type="hidden" name="id"/>
-                                                <label class="control-label col-lg-12">ФИО клиента</label>
+                                                <label class="control-label col-lg-12">Р¤РРћ РєР»РёРµРЅС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control" name="name"
                                                                 path="client.name" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-12">Дата рождения</label>
+                                                <label class="control-label col-lg-12">Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <form:input type="text" class="form-control" name="birth"
@@ -269,14 +269,14 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Серия паспорта</label>
+                                                <label class="control-label col-lg-10">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control"
                                                                 name="passportSeries"
                                                                 path="client.passportSeries" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control"
                                                                 name="passportNumber"
@@ -286,13 +286,13 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Адрес</label>
+                                                <label class="control-label col-lg-10">РђРґСЂРµСЃ</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control" name="address"
                                                                 path="client.address" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер Телефона</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РўРµР»РµС„РѕРЅР°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control" name="phone"
                                                                 path="client.phone" disabled="true"/>
@@ -301,13 +301,13 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>Вклад</h4>
+                                        <h4>Р’РєР»Р°Рґ</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <form:input path="deposit.id" type="hidden" name="id"/>
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Депозит</label>
+                                                <label class="control-label col-lg-12">Р”РµРїРѕР·РёС‚</label>
                                                 <div class="col-lg-12">
                                                     <form:select path="deposit.depositType.id" id="depositTypeId">
                                                         <c:forEach var="type" items="${depositTypeList}">
@@ -319,7 +319,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
-                                            <label class="control-label col-lg-12">Сумма</label>
+                                            <label class="control-label col-lg-12">РЎСѓРјРјР°</label>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <form:input type="number" class="form-control" id="depositSumm"
@@ -332,7 +332,7 @@
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Срок</label>
+                                                <label class="control-label col-lg-10">РЎСЂРѕРє</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="number" class="form-control" id="depositTerm"
                                                                 name="depositTerm"
@@ -347,7 +347,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="float-right">
                                                         <input type="submit" class="btn btn-primary"
-                                                               value="Сохранить"/>
+                                                               value="РЎРѕС…СЂР°РЅРёС‚СЊ"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,27 +367,27 @@
         <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
-                                                                          href="/welcome">Цептер Банк</a>»</span>
+                    <div class="copy">В© 2019 <span class="nowrap">Р—РђРћ В«<a class="spec_decor"
+                                                                          href="/welcome">Р¦РµРїС‚РµСЂ Р‘Р°РЅРє</a>В»</span>
                     </div>
                     <div class="foo_info">
-                        Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
-                        банковской деятельности. <br>
+                        Р›РёС†РµРЅР·РёСЏ РќР°С†РёРѕРЅР°Р»СЊРЅРѕРіРѕ Р±Р°РЅРєР° Р РµСЃРїСѓР±Р»РёРєРё Р‘РµР»Р°СЂСѓСЃСЊ N31 РѕС‚ 28 РјР°СЏ 2013 РіРѕРґР° РЅР° РѕСЃСѓС‰РµСЃС‚РІР»РµРЅРёРµ
+                        Р±Р°РЅРєРѕРІСЃРєРѕР№ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё. <br>
                         <br>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Информация о банке</h4>
+                    <h4>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р±Р°РЅРєРµ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
+                        <li><a href="/bank/newsroom/" class="undecor">РџСЂРµСЃСЃ-С†РµРЅС‚СЂ</a></li>
 
-                        <li><a href="/jobs/" class="undecor">Вакансии</a></li>
+                        <li><a href="/jobs/" class="undecor">Р’Р°РєР°РЅСЃРёРё</a></li>
 
-                        <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
+                        <li><a href="/bank/information/" class="undecor">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</a></li>
 
-                        <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
+                        <li><a href="/bank/contacts/requisites/" class="undecor">Р РµРєРІРёР·РёС‚С‹</a></li>
 
                     </ul>
                     <div class="social_block">
@@ -408,18 +408,18 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Клиенту</h4>
+                    <h4>РљР»РёРµРЅС‚Сѓ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
+                        <li><a href="/bank/contacts" class="undecor">РљРѕРЅС‚Р°РєС‚С‹</a></li>
 
-                        <li><a href="/offices/" class="undecor">Как нас найти</a></li>
+                        <li><a href="/offices/" class="undecor">РљР°Рє РЅР°СЃ РЅР°Р№С‚Рё</a></li>
 
-                        <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
+                        <li><a href="/personal/cards/ibank/" class="undecor">Р¦РµРїС‚РµСЂ РћРЅР»Р°Р№РЅ</a></li>
 
-                        <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
+                        <li><a href="/bank/information/rates/" class="undecor">РџРµСЂРµС‡РЅРё РІРѕР·РЅР°РіСЂР°Р¶РґРµРЅРёР№</a></li>
 
-                        <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
+                        <li><a href="/personal/services/currency/" class="undecor">РљСѓСЂСЃС‹ РІР°Р»СЋС‚</a></li>
 
                     </ul>
                 </div>
@@ -434,21 +434,21 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Информация о вкладе</h4>
+                <h4 class="modal-title">РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РІРєР»Р°РґРµ</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <label class="control-label col-lg-12"><h5>Вклад</h5></label>
+                    <label class="control-label col-lg-12"><h5>Р’РєР»Р°Рґ</h5></label>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Описание</h6></label>
+                        <label class="control-label col-lg-12"><h6>РћРїРёСЃР°РЅРёРµ</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositDescription"></span>
                             </div>
                         </div>
                         <br>
-                        <label class="control-label col-lg-12"><h6>Валюта</h6></label>
+                        <label class="control-label col-lg-12"><h6>Р’Р°Р»СЋС‚Р°</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositCurrency"></span>
@@ -456,14 +456,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Процент</h6></label>
+                        <label class="control-label col-lg-12"><h6>РџСЂРѕС†РµРЅС‚</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositPercentage"></span>
                             </div>
                         </div>
                         <br>
-                        <label class="control-label col-lg-12"><h6>Срок</h6></label>
+                        <label class="control-label col-lg-12"><h6>РЎСЂРѕРє</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositTerm"></span>
@@ -471,33 +471,33 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Сумма</h6></label>
+                        <label class="control-label col-lg-12"><h6>РЎСѓРјРјР°</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositSum"></span>
                             </div>
                         </div>
                         <br>
-                        <label class="control-label col-lg-12"><h6>Капитализация</h6></label>
+                        <label class="control-label col-lg-12"><h6>РљР°РїРёС‚Р°Р»РёР·Р°С†РёСЏ</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <span id="deposiеCapitalization"></span>
+                                <span id="deposiРµCapitalization"></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <label class="control-label col-lg-12"><h5>Информация по текущему вкладу</h5></label>
+                    <label class="control-label col-lg-12"><h5>РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ С‚РµРєСѓС‰РµРјСѓ РІРєР»Р°РґСѓ</h5></label>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Клиент</h6></label>
+                        <label class="control-label col-lg-12"><h6>РљР»РёРµРЅС‚</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositClient"></span>
                             </div>
                         </div>
                         <br>
-                        <label class="control-label col-lg-12"><h6>Пользователь</h6></label>
+                        <label class="control-label col-lg-12"><h6>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositUser"></span>
@@ -505,14 +505,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Начало</h6></label>
+                        <label class="control-label col-lg-12"><h6>РќР°С‡Р°Р»Рѕ</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositStart" readonly="true"></span>
                             </div>
                         </div>
                         <br>
-                        <label class="control-label col-lg-12"><h6>Конец</h6></label>
+                        <label class="control-label col-lg-12"><h6>РљРѕРЅРµС†</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositEnd"></span>
@@ -520,7 +520,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <label class="control-label col-lg-12"><h6>Сумма</h6></label>
+                        <label class="control-label col-lg-12"><h6>РЎСѓРјРјР°</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositCurSum"></span>
@@ -530,9 +530,9 @@
                 </div>
                 <br>
                 <div class="row">
-                    <label class="control-label col-lg-12"><h5>Накопления</h5></label>
+                    <label class="control-label col-lg-12"><h5>РќР°РєРѕРїР»РµРЅРёСЏ</h5></label>
                     <div class="col-lg-6">
-                        <label class="control-label col-lg-12"><h6>На текущий момент</h6></label>
+                        <label class="control-label col-lg-12"><h6>РќР° С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositCurrentProfit"></span>
@@ -540,7 +540,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="control-label col-lg-12"><h6>Общее</h6></label>
+                        <label class="control-label col-lg-12"><h6>РћР±С‰РµРµ</h6></label>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <span id="depositProfit"></span>

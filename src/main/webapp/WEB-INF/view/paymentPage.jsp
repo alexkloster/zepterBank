@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -26,6 +26,7 @@
     <![endif]-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -48,25 +49,25 @@
                                 <a class="nav-link" href="/userPage"><i class="fa fa-home"></i> </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="/payment">Платежи</a>
+                                <a class="nav-link" href="/payment">РџР»Р°С‚РµР¶Рё</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/deposit">Депозиты</a>
+                                <a class="nav-link" href="/deposit">Р”РµРїРѕР·РёС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/credit">Кредиты</a>
+                                <a class="nav-link" href="/credit">РљСЂРµРґРёС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/exchange">Калькулятор валют</a>
+                                <a class="nav-link" href="/exchange">РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РІР°Р»СЋС‚</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/about">О нас</a>
+                                <a class="nav-link" href="/about">Рћ РЅР°СЃ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/contacts">Контакты</a>
+                                <a class="nav-link" href="/contacts">РљРѕРЅС‚Р°РєС‚С‹</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/welcome">Выйти</a>
+                                <a class="nav-link" href="/welcome">Р’С‹Р№С‚Рё</a>
                             </li>
                         </ul>
                     </div>
@@ -80,11 +81,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Последние платежи операциониста ${currentUser.name}</h5>
+                            <h5>РџРѕСЃР»РµРґРЅРёРµ РїР»Р°С‚РµР¶Рё РѕРїРµСЂР°С†РёРѕРЅРёСЃС‚Р° ${currentUser.name}</h5>
                         </div>
                         <div class="col-lg-6">
                             <div class="float-right">
-                                <a class="btn btn-primary" href="/payment-newPayment">Новый платеж</a>
+                                <a class="btn btn-primary" href="/payment-newPayment">РќРѕРІС‹Р№ РїР»Р°С‚РµР¶</a>
                             </div>
                         </div>
                     </div>
@@ -95,18 +96,18 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Тип платежа</th>
-                                    <th>Описание</th>
-                                    <th>Номер платежа</th>
-                                    <th>Сумма</th>
-                                    <th>Дата</th>
-                                    <th>Клиент</th>
+                                    <th>РўРёРї РїР»Р°С‚РµР¶Р°</th>
+                                    <th>РћРїРёСЃР°РЅРёРµ</th>
+                                    <th>РќРѕРјРµСЂ РїР»Р°С‚РµР¶Р°</th>
+                                    <th>РЎСѓРјРјР°</th>
+                                    <th>Р”Р°С‚Р°</th>
+                                    <th>РљР»РёРµРЅС‚</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="payment" items="${payments}">
                                     <tr>
-                                        <td>${payment.paymentType}</td>
+                                        <td>${payment.paymentType.type}</td>
                                         <td>${payment.description}</td>
                                         <td>${payment.number}</td>
                                         <td>${payment.sum}</td>
@@ -127,7 +128,7 @@
 
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Новый платеж операциониста ${currentUser.name}</h5>
+                            <h5>РќРѕРІС‹Р№ РїР»Р°С‚РµР¶ РѕРїРµСЂР°С†РёРѕРЅРёСЃС‚Р° ${currentUser.name}</h5>
                         </div>
                     </div>
 
@@ -139,26 +140,26 @@
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Серия паспорта</label>
+                                                <label class="control-label col-lg-12">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" name="passportSeries"
-                                                           value="${client.passportSeries }"/>
+                                                    <input type="text" class="form-control passportSeries" name="passportSeries"
+                                                           value="${client.passportSeries }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportNumber"
-                                                           value="${client.passportNumber }"/>
+                                                    <input type="text" class="form-control passportNumber" name="passportNumber"
+                                                           value="${client.passportNumber }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <label class="control-label col-lg-10"> </label>
                                             <div class="form-group col-lg-12">
-                                                <input type="submit" class="btn btn-primary" value="Найти"/>
+                                                <input type="submit" class="btn btn-primary" value="РќР°Р№С‚Рё"/>
                                             </div>
                                         </div>
                                     </div>
@@ -167,55 +168,55 @@
                         </c:when>
                         <c:when test="${client_mode == 'NEW'}">
                             <div class="alert alert-info">
-                                Такого клиента нет, необходимо добавить нового.
+                                РўР°РєРѕРіРѕ РєР»РёРµРЅС‚Р° РЅРµС‚, РЅРµРѕР±С…РѕРґРёРјРѕ РґРѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРіРѕ.
                             </div>
                             <div class="row">
                                 <form class="form-horizontal col-lg-12" method="POST" action="/payment-save-client">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">ФИО клиента</label>
+                                                <label class="control-label col-lg-12">Р¤РРћ РєР»РёРµРЅС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="name"
-                                                           value="${client.name }"/>
+                                                           value="${client.name }" required="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-12">Дата рождения</label>
+                                                <label class="control-label col-lg-12">Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <input type="date" class="form-control" name="birth"
-                                                               value="${client.birth }"/>
+                                                               value="${client.birth }" required="true"/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Серия паспорта</label>
+                                                <label class="control-label col-lg-10">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportSeries"
-                                                           value="${client.passportSeries }"/>
+                                                    <input type="text" class="form-control passportSeries" name="passportSeries"
+                                                           value="${client.passportSeries }" required="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportNumber"
-                                                           value="${client.passportNumber }"/>
+                                                    <input type="text" class="form-control passportNumber" name="passportNumber"
+                                                           value="${client.passportNumber }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Адрес</label>
+                                                <label class="control-label col-lg-10">РђРґСЂРµСЃ</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="address"
                                                            value="${client.address }"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер Телефона</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РўРµР»РµС„РѕРЅР°</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="phone"
-                                                           value="${client.phone }"/>
+                                                    <input type="text" class="form-control phone" name="phone"
+                                                           value="${client.phone }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -226,7 +227,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="float-right">
                                                         <input type="submit" class="btn btn-primary"
-                                                               value="Сохранить"/>
+                                                               value="РЎРѕС…СЂР°РЅРёС‚СЊ"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,19 +242,19 @@
                                       action="/payment-save-payment">
 
                                     <div class="row">
-                                        <h4>Клиент:</h4>
+                                        <h4>РљР»РёРµРЅС‚:</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <form:input path="client.id" type="hidden" name="id"/>
-                                                <label class="control-label col-lg-12">ФИО клиента</label>
+                                                <label class="control-label col-lg-12">Р¤РРћ РєР»РёРµРЅС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control" name="name"
                                                                 path="client.name" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-12">Дата рождения</label>
+                                                <label class="control-label col-lg-12">Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <form:input type="text" class="form-control" name="birth"
@@ -264,14 +265,14 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Серия паспорта</label>
+                                                <label class="control-label col-lg-10">РЎРµСЂРёСЏ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control"
                                                                 name="passportSeries"
                                                                 path="client.passportSeries" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер паспорта</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р°</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control"
                                                                 name="passportNumber"
@@ -281,37 +282,38 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Адрес</label>
+                                                <label class="control-label col-lg-10">РђРґСЂРµСЃ</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="text" class="form-control" name="address"
                                                                 path="client.address" disabled="true"/>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-10">Номер Телефона</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РўРµР»РµС„РѕРЅР°</label>
                                                 <div class="col-lg-12">
-                                                    <form:input type="text" class="form-control" name="phone"
+                                                    <form:input type="text" class="form-control" name="phone" id="phone"
                                                                 path="client.phone" disabled="true"/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>Платеж</h4>
+                                        <h4>РџР»Р°С‚РµР¶</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <form:input path="payment.id" type="hidden" name="id"/>
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Тип платежа</label>
+                                                <label class="control-label col-lg-12">РўРёРї РїР»Р°С‚РµР¶Р°</label>
+                                                <form:input type="hidden" path="payment.paymentType" name="paymentType" id="paymentType"/>
                                                 <div class="col-lg-12">
-                                                    <form:select path="payment.paymentType" id="type">
-                                                        <c:forEach var="type" items="${paymentTypes}">
-                                                            <form:option value="${type}">${type}</form:option>
-                                                        </c:forEach>
-                                                    </form:select>
+                                                <select class="form-control" id="paymentTypeSelect">
+                                                    <c:forEach var="type" items="${paymentTypes}">
+                                                        <option value="${type}"><c:out value="${type.type}"/></option>
+                                                    </c:forEach>
+                                                </select>
                                                 </div>
                                                 <br>
-                                                <label class="control-label col-lg-12">Описание</label>
+                                                <label class="control-label col-lg-12">РћРїРёСЃР°РЅРёРµ</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <form:input type="text" class="form-control"
@@ -323,19 +325,19 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Номер платежа</label>
+                                                <label class="control-label col-lg-10">РќРѕРјРµСЂ РїР»Р°С‚РµР¶Р°</label>
                                                 <div class="col-lg-12">
-                                                    <form:input type="text" class="form-control" name="number"
+                                                    <form:input type="text" class="form-control paymentNumber" name="number"
                                                                 path="payment.number"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label class="control-label col-lg-10">Сумма</label>
+                                                <label class="control-label col-lg-10">РЎСѓРјРјР°</label>
                                                 <div class="col-lg-12">
-                                                    <form:input type="text" class="form-control" name="sum"
-                                                                path="payment.sum"/>
+                                                    <form:input type="number" class="form-control" name="sum" pattern="[0-9]*"
+                                                                path="payment.sum" step="10" min="0"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -346,7 +348,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="float-right">
                                                         <input type="submit" class="btn btn-primary"
-                                                               value="Сохранить"/>
+                                                               value="РЎРѕС…СЂР°РЅРёС‚СЊ"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,27 +369,27 @@
         <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
-                                                                          href="/welcome">Цептер Банк</a>»</span>
+                    <div class="copy">В© 2019 <span class="nowrap">Р—РђРћ В«<a class="spec_decor"
+                                                                          href="/welcome">Р¦РµРїС‚РµСЂ Р‘Р°РЅРє</a>В»</span>
                     </div>
                     <div class="foo_info">
-                        Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
-                        банковской деятельности. <br>
+                        Р›РёС†РµРЅР·РёСЏ РќР°С†РёРѕРЅР°Р»СЊРЅРѕРіРѕ Р±Р°РЅРєР° Р РµСЃРїСѓР±Р»РёРєРё Р‘РµР»Р°СЂСѓСЃСЊ N31 РѕС‚ 28 РјР°СЏ 2013 РіРѕРґР° РЅР° РѕСЃСѓС‰РµСЃС‚РІР»РµРЅРёРµ
+                        Р±Р°РЅРєРѕРІСЃРєРѕР№ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё. <br>
                         <br>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Информация о банке</h4>
+                    <h4>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р±Р°РЅРєРµ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
+                        <li><a href="/bank/newsroom/" class="undecor">РџСЂРµСЃСЃ-С†РµРЅС‚СЂ</a></li>
 
-                        <li><a href="/jobs/" class="undecor">Вакансии</a></li>
+                        <li><a href="/jobs/" class="undecor">Р’Р°РєР°РЅСЃРёРё</a></li>
 
-                        <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
+                        <li><a href="/bank/information/" class="undecor">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</a></li>
 
-                        <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
+                        <li><a href="/bank/contacts/requisites/" class="undecor">Р РµРєРІРёР·РёС‚С‹</a></li>
 
                     </ul>
                     <div class="social_block">
@@ -408,18 +410,18 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Клиенту</h4>
+                    <h4>РљР»РёРµРЅС‚Сѓ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
+                        <li><a href="/bank/contacts" class="undecor">РљРѕРЅС‚Р°РєС‚С‹</a></li>
 
-                        <li><a href="/offices/" class="undecor">Как нас найти</a></li>
+                        <li><a href="/offices/" class="undecor">РљР°Рє РЅР°СЃ РЅР°Р№С‚Рё</a></li>
 
-                        <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
+                        <li><a href="/personal/cards/ibank/" class="undecor">Р¦РµРїС‚РµСЂ РћРЅР»Р°Р№РЅ</a></li>
 
-                        <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
+                        <li><a href="/bank/information/rates/" class="undecor">РџРµСЂРµС‡РЅРё РІРѕР·РЅР°РіСЂР°Р¶РґРµРЅРёР№</a></li>
 
-                        <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
+                        <li><a href="/personal/services/currency/" class="undecor">РљСѓСЂСЃС‹ РІР°Р»СЋС‚</a></li>
 
                     </ul>
                 </div>
@@ -433,5 +435,8 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="static/js/jquery-1.11.1.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/app.js"></script>
+
+<script src="static/js/dist/jquery.inputmask.bundle.js"></script>
 </body>
 </html>

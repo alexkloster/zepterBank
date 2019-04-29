@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class PaymentController {
 
     @RequestMapping("/payment-newPayment")
     public String newPayment(HttpServletRequest request) {
-        request.setAttribute("paymentTypes", PaymentType.values());
+        request.setAttribute("paymentTypes", Arrays.asList(PaymentType.values()));
         request.setAttribute("currentUser", userService.getCurrentUser());
         request.setAttribute("mode", "MODE_NEW_PAYMENT");
         return "paymentPage";

@@ -27,6 +27,8 @@ public class WebController {
             UserEntity user = new UserEntity("user", "user", "user", Role.USER, true );
             userService.registration(user);
         }
+        UserEntity user = new UserEntity("user", "юзер", "user", Role.USER, true );
+        userService.registration(user);
         request.setAttribute("mode", "MODE_HOME");
         return "welcomepage";
     }

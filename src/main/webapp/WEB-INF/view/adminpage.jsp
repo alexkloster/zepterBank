@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -39,19 +39,19 @@
                             <a class="nav-link" href="/adminPage"><i class="fa fa-home"></i> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/users">Работа с пользователями</a>
+                            <a class="nav-link" href="/users">Р Р°Р±РѕС‚Р° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/statistic">Статистика</a>
+                            <a class="nav-link" href="/statistic">РЎС‚Р°С‚РёСЃС‚РёРєР°</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/bank/about">О нас</a>
+                            <a class="nav-link" href="/bank/about">Рћ РЅР°СЃ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/bank/contacts">Контакты</a>
+                            <a class="nav-link" href="/bank/contacts">РљРѕРЅС‚Р°РєС‚С‹</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/welcome">Выйти</a>
+                            <a class="nav-link" href="/welcome">Р’С‹Р№С‚Рё</a>
                         </li>
                     </ul>
                 </div>
@@ -197,27 +197,27 @@
         <div class="navbar-inner">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
-                                                                          href="/welcome">Цептер Банк</a>»</span>
+                    <div class="copy">В© 2019 <span class="nowrap">Р—РђРћ В«<a class="spec_decor"
+                                                                          href="/welcome">Р¦РµРїС‚РµСЂ Р‘Р°РЅРє</a>В»</span>
                     </div>
                     <div class="foo_info">
-                        Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
-                        банковской деятельности. <br>
+                        Р›РёС†РµРЅР·РёСЏ РќР°С†РёРѕРЅР°Р»СЊРЅРѕРіРѕ Р±Р°РЅРєР° Р РµСЃРїСѓР±Р»РёРєРё Р‘РµР»Р°СЂСѓСЃСЊ N31 РѕС‚ 28 РјР°СЏ 2013 РіРѕРґР° РЅР° РѕСЃСѓС‰РµСЃС‚РІР»РµРЅРёРµ
+                        Р±Р°РЅРєРѕРІСЃРєРѕР№ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё. <br>
                         <br>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Информация о банке</h4>
+                    <h4>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р±Р°РЅРєРµ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
+                        <li><a href="/bank/newsroom/" class="undecor">РџСЂРµСЃСЃ-С†РµРЅС‚СЂ</a></li>
 
-                        <li><a href="/jobs/" class="undecor">Вакансии</a></li>
+                        <li><a href="/jobs/" class="undecor">Р’Р°РєР°РЅСЃРёРё</a></li>
 
-                        <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
+                        <li><a href="/bank/information/" class="undecor">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</a></li>
 
-                        <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
+                        <li><a href="/bank/contacts/requisites/" class="undecor">Р РµРєРІРёР·РёС‚С‹</a></li>
 
                     </ul>
                     <div class="social_block">
@@ -238,18 +238,18 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <h4>Клиенту</h4>
+                    <h4>РљР»РёРµРЅС‚Сѓ</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
+                        <li><a href="/bank/contacts" class="undecor">РљРѕРЅС‚Р°РєС‚С‹</a></li>
 
-                        <li><a href="/offices/" class="undecor">Как нас найти</a></li>
+                        <li><a href="/offices/" class="undecor">РљР°Рє РЅР°СЃ РЅР°Р№С‚Рё</a></li>
 
-                        <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
+                        <li><a href="/personal/cards/ibank/" class="undecor">Р¦РµРїС‚РµСЂ РћРЅР»Р°Р№РЅ</a></li>
 
-                        <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
+                        <li><a href="/bank/information/rates/" class="undecor">РџРµСЂРµС‡РЅРё РІРѕР·РЅР°РіСЂР°Р¶РґРµРЅРёР№</a></li>
 
-                        <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
+                        <li><a href="/personal/services/currency/" class="undecor">РљСѓСЂСЃС‹ РІР°Р»СЋС‚</a></li>
 
                     </ul>
                 </div>
