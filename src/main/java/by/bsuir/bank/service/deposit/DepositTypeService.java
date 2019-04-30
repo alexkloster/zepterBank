@@ -12,4 +12,8 @@ public interface DepositTypeService {
     List<DepositTypeEntity> getAllDepositTypes();
 
     DepositTypeEntity getById(Long id);
+
+    void delete(Long id);
+
+    DepositTypeEntity save(DepositTypeEntity entity);
 }

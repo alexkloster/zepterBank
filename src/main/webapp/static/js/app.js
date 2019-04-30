@@ -6,6 +6,29 @@ $('#paymentTypeSelect').on('change', function () {
 
 });
 
+$('#currencySelect').on('change', function () {
+
+    var combo = document.getElementById("currencySelect");
+
+    $("#currency").val(combo.options[combo.selectedIndex].value);
+
+});
+
+$('#depositCurrencySelect').on('change', function () {
+
+    var combo = document.getElementById("depositCurrencySelect");
+
+    $("#depositCurrency").val(combo.options[combo.selectedIndex].value);
+
+});
+
+$('#capitalizationBox').on('change', function () {
+
+    var capitalization = document.getElementById("capitalizationBox");
+
+    $("#capitalization").val(capitalization.checked);
+
+});
 
 $('#creditTypeSelect').on('change', function () {
 

@@ -23,4 +23,14 @@ public class DepositTypeServiceImpl implements DepositTypeService{
     public DepositTypeEntity getById(Long id) {
         return depositTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void delete(Long id) {
+        depositTypeRepository.deleteById(id);
+    }
+
+    @Override
+    public DepositTypeEntity save(DepositTypeEntity entity) {
+        return depositTypeRepository.save(entity);
+    }
 }

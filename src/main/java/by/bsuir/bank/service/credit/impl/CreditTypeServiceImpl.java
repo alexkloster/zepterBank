@@ -23,4 +23,14 @@ public class CreditTypeServiceImpl implements CreditTypeService {
     public CreditTypeEntity getById(Long id) {
         return creditTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void deleteCreditTypeById(Long id) {
+        creditTypeRepository.deleteById(id);
+    }
+
+    @Override
+    public CreditTypeEntity save(CreditTypeEntity entity) {
+        return creditTypeRepository.save(entity);
+    }
 }

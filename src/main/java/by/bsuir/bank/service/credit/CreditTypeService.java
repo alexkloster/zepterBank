@@ -11,4 +11,8 @@ public interface CreditTypeService {
     List<CreditTypeEntity> getAllCreditTypes();
 
     CreditTypeEntity getById(Long id);
+
+    void deleteCreditTypeById(Long id);
+
+    CreditTypeEntity save(CreditTypeEntity entity);
 }
