@@ -19,4 +19,8 @@ public interface DepositService {
     DepositEntity createAndSaveDeposit(DepositEntity depositEntity, ClientEntity client, UserEntity user);
 
     DepositEntity getById(Long id);
+
+    Double calculateProfitForCurrentDate(DepositEntity depositEntity);
+
+    Double calculateProfit(DepositEntity depositEntity);
 }

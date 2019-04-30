@@ -61,11 +61,25 @@ $('[data-toggle="modal"]').on('click', function (e) {
             $("#depositStart").text(formatDate(startDate));
             $("#depositEnd").text(formatDate(endDate));
             $("#depositCurSum").text(deposit.sum);
+        }
+    });
+    $.ajax({
+        url: "/calculateCurrentProfit/" + depositId,
+        type: "GET",
 
-            $("#depositCurrentProfit").text(deposit.endDate.format("dd-mm-yyyy"));
-            $("#depositProfit").text(deposit.endDate.format("dd-mm-yyyy"));
+        contentType: 'application/json; charset=utf-8',
+        success: function(profit) {
+            $("#depositCurrentProfit").text(profit);
+        }
+    });
 
+    $.ajax({
+        url: "/calculateProfit/" + depositId,
+        type: "GET",
 
+        contentType: 'application/json; charset=utf-8',
+        success: function(profit) {
+            $("#depositProfit").text(profit);
         }
     });
 
@@ -83,7 +97,7 @@ $(document).ready(function ($) {
 function formatDate(date) {
     var monthNames = [
         "янв", "фев", "мар",
-        "фпр", "май", "июн", "июл",
+        "aпр", "май", "июн", "июл",
         "авг", "сен", "окт",
         "ноя", "дек"
     ];

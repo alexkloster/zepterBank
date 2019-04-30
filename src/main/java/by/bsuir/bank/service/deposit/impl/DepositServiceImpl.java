@@ -8,6 +8,10 @@ import by.bsuir.bank.service.deposit.DepositService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -52,5 +56,68 @@ public class DepositServiceImpl implements DepositService{
     @Override
     public DepositEntity getById(Long id) {
         return depositRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Double calculateProfitForCurrentDate(DepositEntity deposit) {
+        Double profit = null;
+        Double summ = deposit.getSum();
+        Double percentage = deposit.getDepositType().getPercentage()/100;
+        LocalDateTime startDeposDate = LocalDateTime.ofInstant(deposit.getStartDate().toInstant(), ZoneId.systemDefault());
+        LocalDateTime endDeposDate = LocalDateTime.ofInstant(deposit.getEndDate().toInstant(), ZoneId.systemDefault());
+        LocalDateTime currentDate = LocalDateTime.now();
+        if(deposit.getDepositType().getCapitalization()) {
+            LocalDateTime bankStartDate = LocalDateTime.of(2016, 1, 1, 0, 0, 0);
+            while (bankStartDate.isBefore(startDeposDate)) {
+                bankStartDate = bankStartDate.plusMonths(3);
+            }
+            if (bankStartDate.isBefore(currentDate) || bankStartDate.isEqual(currentDate)) {
+                long daysStart = Math.abs(Duration.between(startDeposDate, bankStartDate).toDays());
+                int n = 0;
+                if (currentDate.isAfter(endDeposDate)) {
+                    currentDate = endDeposDate;
+                }
+                while (bankStartDate.isBefore(currentDate.minusMonths(3))) {
+                    bankStartDate = bankStartDate.plusMonths(3);
+                    n++;
+                }
+                long daysEnd = Duration.between(bankStartDate, currentDate).toDays();
+                Double startSum = summ * daysStart * (percentage / 365);
+                Double midleSumm = (summ + startSum) * (Math.pow((1 + percentage / 4), n));
+                Double endSumm = midleSumm * daysEnd * percentage / 365;
+                endSumm = midleSumm + endSumm;
+                profit = endSumm - summ;
+            } else {
+                long daysStart = Math.abs(Duration.between(startDeposDate, currentDate).toDays());
+                profit = summ * daysStart * (percentage / 365);
+            }
+        } else {
+            if(endDeposDate.isBefore(currentDate)) {
+                currentDate = endDeposDate;
+            }
+            long days = Math.abs(Duration.between(startDeposDate, currentDate).toDays());
+            profit = summ * days * (percentage/365);
+        }
+        return profit;
+    }
+
+
+    @Override
+    public Double calculateProfit(DepositEntity depositEntity) {
+
+        Double summ = depositEntity.getSum();
+        Double percentage = depositEntity.getDepositType().getPercentage()/100;
+        Integer term = depositEntity.getTerm();
+
+        Double resultValue;
+        Double profitValue;
+        if (depositEntity.getDepositType().getCapitalization()) {
+            resultValue = new BigDecimal(summ * Math.pow((1 + percentage / 4), term / 3)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            profitValue = new BigDecimal(resultValue - summ).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        } else {
+            resultValue = new BigDecimal(summ + (summ * percentage) * term / 12).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            profitValue = new BigDecimal(resultValue - summ).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        }
+        return profitValue;
     }
 }

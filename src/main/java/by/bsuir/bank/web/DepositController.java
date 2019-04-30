@@ -100,5 +100,19 @@ public class DepositController {
     }
 
 
+    @GetMapping("/calculateCurrentProfit/{id}")
+    @ResponseBody
+    public Double calculateCurrentProfit(@PathVariable("id") Long id) {
+        DepositEntity entity = depositService.getById(id);
+        return depositService.calculateProfitForCurrentDate(entity);
+    }
+
+    @GetMapping("/calculateProfit/{id}")
+    @ResponseBody
+    public Double calculateProfit(@PathVariable("id") Long id) {
+        DepositEntity entity = depositService.getById(id);
+        return depositService.calculateProfit(entity);
+    }
+
 
 }
