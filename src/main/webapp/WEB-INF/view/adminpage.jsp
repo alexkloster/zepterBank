@@ -53,10 +53,10 @@
                                 <a class="nav-link" href="/statistic">Статистика</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/bank/about">О нас</a>
+                                <a class="nav-link" href="/adminPage">О нас</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/bank/contacts">Контакты</a>
+                                <a class="nav-link" href="/contacts">Контакты</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/exit">Выйти</a>
