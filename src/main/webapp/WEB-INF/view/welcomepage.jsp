@@ -205,34 +205,36 @@
     </c:when>
 
     <c:when test="${mode=='MODE_LOGIN' }">
-        <div class="container text-center">
-            <div class="col-lg-4 col-lg-offset-4 centered">
-                <h3>Авторизация</h3>
-                <hr>
-                <form class="form-horizontal" method="POST" action="/login-user">
-                    <c:if test="${not empty error }">
-                        <div class="alert alert-danger">
-                            <c:out value="${error }"></c:out>
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-lg-4 offset-lg-4">
+                    <h3>Авторизация</h3>
+                    <hr>
+                    <form class="form-horizontal" method="POST" action="/login-user">
+                        <c:if test="${not empty error }">
+                            <div class="alert alert-danger">
+                                <c:out value="${error }"></c:out>
+                            </div>
+                        </c:if>
+                        <div class="form-group">
+                            <label class="control-label">Логин</label>
+                            <div>
+                                <input type="text" class="form-control" name="login"
+                                       value="${user.login }"/>
+                            </div>
                         </div>
-                    </c:if>
-                    <div class="form-group">
-                        <label class="control-label">Логин</label>
-                        <div>
-                            <input type="text" class="form-control" name="login"
-                                   value="${user.login }"/>
+                        <div class="form-group">
+                            <label class="control-label">Password</label>
+                            <div>
+                                <input type="password" class="form-control" name="password"
+                                       value="${user.password }"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Password</label>
-                        <div>
-                            <input type="password" class="form-control" name="password"
-                                   value="${user.password }"/>
+                        <div class="form-group ">
+                            <input type="submit" class="btn btn-primary" value="Login"/>
                         </div>
-                    </div>
-                    <div class="form-group ">
-                        <input type="submit" class="btn btn-primary" value="Login"/>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </c:when>
