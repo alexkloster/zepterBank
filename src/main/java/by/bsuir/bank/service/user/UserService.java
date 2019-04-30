@@ -20,4 +20,6 @@ public interface UserService {
     UserEntity findById(Long id);
 
     UserEntity getCurrentUser();
+
+    void setCurrentUser(UserEntity entity);
 }

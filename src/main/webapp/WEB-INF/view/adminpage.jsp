@@ -21,180 +21,158 @@
 
 </head>
 <body>
-<div id="#wrap">
-
-    <div role="navigation">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="/adminPage">
-                    <img src="static/images/logo.png" alt="" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/adminPage"><i class="fa fa-home"></i> </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/users">Работа с пользователями</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/statistic">Статистика</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/bank/about">О нас</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/bank/contacts">Контакты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/welcome">Выйти</a>
-                        </li>
-                    </ul>
+<div class="page-container bg-light">
+    <div class="content-wrap bg-white">
+        <div role="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+                <div class="container">
+                    <a class="navbar-brand" href="/adminPage">
+                        <img src="static/images/logo.png" alt="" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/adminPage"><i class="fa fa-home"></i> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users">Работа с пользователями</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/statistic">Статистика</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/bank/about">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/bank/contacts">Контакты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/exit">Выйти</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div>
-
-
-    <c:choose>
-    <c:when test="${mode=='MODE_HOME' }">
-
-        <div class="container-fluid " id="homediv">
-
-            <div class="row">
-
-                <div class="jumbotron center">
-
-                    <h1 align="center">Welcome to Zepter Bank</h1>
-                    <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
-                </div>
-
-            </div>
-
-
+            </nav>
         </div>
 
 
-    </c:when>
+        <c:choose>
+            <c:when test="${mode=='MODE_HOME' }">
 
-    <c:when test="${mode=='MODE_USERS' }">
+                <div class="container-fluid " id="homediv">
 
-    <div class="container">
-        <div class="row">
+                    <div class="row">
 
-            <div class="jumbotron center full-height">
+                        <div class="jumbotron center">
 
-                <hr>
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Login</th>
-                            <th>Password</th>
-                            <th>Role</th>
-                            <th>Delete</th>
-                            <th>Edit</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="user" items="${users }">
-                            <tr>
-                                <td>${user.id}</td>
-                                <td>${user.name}</td>
-                                <td>${user.login}</td>
-                                <td>${user.password}</td>
-                                <td>${user.role}</td>
-                                <td><a href="/delete-user?id=${user.id }"><i class="fa fa-trash"></i></a></td>
-                                <td><a href="/edit-user?id=${user.id }"><i class="fa fa-edit"></i> </a></td>
-                                <td>
-                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-                                            data-target="#myModal">Open Modal
-                                    </button>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                            <h1 align="center">Добро пожаловать в Цептер Банк!k</h1>
+                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
+                        </div>
+
+                    </div>
+
+
                 </div>
-            </div>
 
 
-        </div>
+            </c:when>
+
+            <c:when test="${mode=='MODE_USERS' }">
+
+                <div class="container">
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="float-right">
+                                <a class="btn btn-primary" href="/new-user">Создать пользователя</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>ИД</th>
+                                    <th>Имя</th>
+                                    <th>Логин</th>
+                                    <th>Пароль</th>
+                                    <th>Роль</th>
+                                    <th>Удалить</th>
+                                    <th>Изменить</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="user" items="${users }">
+                                    <tr>
+                                        <td>${user.id}</td>
+                                        <td>${user.name}</td>
+                                        <td>${user.login}</td>
+                                        <td>${user.password}</td>
+                                        <td>${user.role}</td>
+                                        <td><a href="/delete-user?id=${user.id }"><i class="fa fa-trash"></i></a></td>
+                                        <td><a href="/edit-user?id=${user.id }"><i class="fa fa-edit"></i> </a></td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+
+
+            <c:when test="${mode=='MODE_UPDATE' }">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3">
+                            <h3>Созать пользователя</h3>
+                            <hr>
+                            <form class="form-horizontal" method="POST" action="save-user">
+                                <input type="hidden" name="id" value="${user.id}"/>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">ФИО</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="name"
+                                               value="${user.name}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Логин</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="login"
+                                               value="${user.login}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Пароль</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="password"
+                                               value="${user.password}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <input type="submit" class="btn btn-primary" value="Update"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+        </c:choose>
     </div>
-</div>
 
-
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-</c:when>
-
-
-<c:when test="${mode=='MODE_UPDATE' }">
-    <div class="container text-center">
-        <h3>Update User</h3>
-        <hr>
-        <form class="form-horizontal" method="POST" action="save-user">
-            <input type="hidden" name="id" value="${user.id}"/>
-            <div class="form-group">
-                <label class="control-label col-md-3">Name</label>
-                <div class="col-md-7">
-                    <input type="text" class="form-control" name="name"
-                           value="${user.name}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-3">Login</label>
-                <div class="col-md-7">
-                    <input type="text" class="form-control" name="login"
-                           value="${user.login}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-3">Password </label>
-                <div class="col-md-3">
-                    <input type="text" class="form-control" name="password"
-                           value="${user.password}"/>
-                </div>
-            </div>
-
-            <div class="form-group ">
-                <input type="submit" class="btn btn-primary" value="Update"/>
-            </div>
-        </form>
-    </div>
-</c:when>
-</c:choose>
-
-
-
-
-<br>
-<footer class="navbar row-fluid navbar-light bg-light">
-    <div class="container">
-        <div class="navbar-inner">
+    <br>
+    <footer class="navbar navbar-light bg-light">
+        <div class="container bg-light">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
@@ -246,10 +224,9 @@
                     </ul>
                 </div>
             </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

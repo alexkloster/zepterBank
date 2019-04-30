@@ -44,10 +44,10 @@
                                         <a class="nav-link" href="/welcome"><i class="fa fa-home"></i> </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/bank/about">О нас</a>
+                                        <a class="nav-link" href="/about">О нас</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/bank/contacts">Контакты</a>
+                                        <a class="nav-link" href="/contacts">Контакты</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/login">Войти</a>
@@ -62,7 +62,7 @@
                 <div role="navigation">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
                         <div class="container">
-                            <a class="navbar-brand" href="/user/userPage">
+                            <a class="navbar-brand" href="/userPage">
                                 <img src="static/images/logo.png" alt="" height="50">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -95,7 +95,7 @@
                                         <a class="nav-link" href="/contacts">Контакты</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/welcome">Выйти</a>
+                                        <a class="nav-link" href="/exit">Выйти</a>
                                     </li>
                                 </ul>
                             </div>
@@ -128,13 +128,13 @@
                                         <a class="nav-link" href="/statistic">Статистика</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/bank/about">О нас</a>
+                                        <a class="nav-link" href="/about">О нас</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/bank/contacts">Контакты</a>
+                                        <a class="nav-link" href="/contacts">Контакты</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/welcome">Выйти</a>
+                                        <a class="nav-link" href="/exit">Выйти</a>
                                     </li>
                                 </ul>
                             </div>

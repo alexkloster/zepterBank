@@ -61,4 +61,9 @@ public class UserServiceImpl implements UserService{
     public UserEntity getCurrentUser() {
         return currentUser;
     }
+
+    @Override
+    public void setCurrentUser(UserEntity entity) {
+        this.currentUser = entity;
+    }
 }

@@ -48,10 +48,18 @@ public class AdminController {
         return "adminpage";
     }
 
+    @RequestMapping("/new-user")
+    public String newUser(HttpServletRequest request) {
+        request.setAttribute("user", new UserEntity());
+        request.setAttribute("mode", "MODE_UPDATE");
+        return "adminpage";
+    }
+
     @PostMapping("/save-user")
     public String registration(@ModelAttribute UserEntity user, BindingResult bindingResult, HttpServletRequest request) {
         System.out.println(user.getLogin() + user.getPassword());
         user.setRole(Role.USER);
+        user.setSubmitted(true);
         userService.registration(user);
         request.setAttribute("mode", "MODE_USERS");
         return "adminpage";

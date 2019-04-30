@@ -33,7 +33,7 @@
         <div role="navigation">
             <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
                 <div class="container">
-                    <a class="navbar-brand" href="/user/userPage">
+                    <a class="navbar-brand" href="/userPage">
                         <img src="static/images/logo.png" alt="" height="50">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="/contacts">Контакты</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/welcome">Выйти</a>
+                                <a class="nav-link" href="/exit">Выйти</a>
                             </li>
                         </ul>
                     </div>

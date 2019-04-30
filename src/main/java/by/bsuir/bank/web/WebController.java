@@ -20,7 +20,7 @@ public class WebController {
 
 
     @RequestMapping("/welcome")
-    public String Welcome(HttpServletRequest request) {
+    public String welcome(HttpServletRequest request) {
         if(userService.getAllUsers().size() == 0) {
             UserEntity admin = new UserEntity("admin", "admin", "admin", Role.ADMINISTRATOR, true) ;
             userService.registration(admin);
@@ -69,9 +69,32 @@ public class WebController {
     public String requisites(HttpServletRequest request) {
         checkUser(request);
         return "requisites";
-
-
     }
+
+    @RequestMapping("/contacts")
+    public String contacts(HttpServletRequest request) {
+        checkUser(request);
+        return "contacts";
+    }
+
+    @RequestMapping("/offices")
+    public String offices(HttpServletRequest request) {
+        checkUser(request);
+        return "offices";
+    }
+
+    @RequestMapping("/jobs")
+    public String work(HttpServletRequest request) {
+        checkUser(request);
+        return "work";
+    }
+
+    @RequestMapping("/exit")
+    public String exit(HttpServletRequest request) {
+        userService.setCurrentUser(null);
+        return welcome(request);
+    }
+
 
 
     private void checkUser(HttpServletRequest request) {
