@@ -28,6 +28,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"
+            type="text/javascript"></script>
+
 </head>
 <body>
 <div class="page-container bg-light">
@@ -146,7 +151,8 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-12">Серия паспорта</label>
                                                 <div class="col-lg-8">
-                                                    <input type="text" class="form-control" name="passportSeries"
+                                                    <input type="text" class="form-control passportSeries"
+                                                           name="passportSeries"
                                                            value="${client.passportSeries }"/>
                                                 </div>
                                             </div>
@@ -155,7 +161,8 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-10">Номер паспорта</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportNumber"
+                                                    <input type="text" class="form-control passportNumber"
+                                                           name="passportNumber"
                                                            value="${client.passportNumber }"/>
                                                 </div>
                                             </div>
@@ -182,14 +189,14 @@
                                                 <label class="control-label col-lg-12">ФИО клиента</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control" name="name"
-                                                           value="${client.name }"/>
+                                                           value="${client.name }" required="true"/>
                                                 </div>
                                                 <br>
                                                 <label class="control-label col-lg-12">Дата рождения</label>
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <input type="date" class="form-control" name="birth"
-                                                               value="${client.birth }"/>
+                                                               value="${client.birth }" required="true"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,14 +205,16 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-10">Серия паспорта</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportSeries"
-                                                           value="${client.passportSeries }"/>
+                                                    <input type="text" class="form-control passportSeries"
+                                                           name="passportSeries"
+                                                           value="${client.passportSeries }" required="true"/>
                                                 </div>
                                                 <br>
                                                 <label class="control-label col-lg-10">Номер паспорта</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="passportNumber"
-                                                           value="${client.passportNumber }"/>
+                                                    <input type="text" class="form-control passportNumber"
+                                                           name="passportNumber"
+                                                           value="${client.passportNumber }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,8 +228,8 @@
                                                 <br>
                                                 <label class="control-label col-lg-10">Номер Телефона</label>
                                                 <div class="col-lg-12">
-                                                    <input type="text" class="form-control" name="phone"
-                                                           value="${client.phone }"/>
+                                                    <input type="text" class="form-control phone" name="phone"
+                                                           value="${client.phone }" required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -263,6 +272,7 @@
                                                     <div class="form-group">
                                                         <form:input type="text" class="form-control" name="birth"
                                                                     path="client.birth" disabled="true"/>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,7 +319,8 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-12">Депозит</label>
                                                 <div class="col-lg-12">
-                                                    <form:select path="deposit.depositType.id" id="depositTypeId">
+                                                    <form:select path="deposit.depositType.id" id="depositTypeId"
+                                                                 required="true">
                                                         <c:forEach var="type" items="${depositTypeList}">
                                                             <form:option
                                                                     value="${type.id}">${type.description}</form:option>
@@ -323,9 +334,11 @@
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <form:input type="number" class="form-control" id="depositSumm"
+                                                                pattert="[0-9]*"
                                                                 name="depositSumm"
                                                                 path="deposit.sum"
-                                                                step="100"/>
+                                                                step="100"
+                                                                required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -335,8 +348,10 @@
                                                 <label class="control-label col-lg-10">Срок</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="number" class="form-control" id="depositTerm"
+                                                                pattern="[0-9]*"
                                                                 name="depositTerm"
-                                                                path="deposit.term"/>
+                                                                path="deposit.term"
+                                                                required="true"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -559,6 +574,7 @@
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/bootstrap-input-spinner.js"></script>
 <script type="text/javascript" src="static/js/app.js"></script>
+<script src="static/js/dist/jquery.inputmask.bundle.js"></script>
 
 <script>
     $("input[type='number']").inputSpinner()

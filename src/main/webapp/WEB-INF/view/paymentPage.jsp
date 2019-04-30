@@ -337,7 +337,7 @@
                                                 <label class="control-label col-lg-10">Сумма</label>
                                                 <div class="col-lg-12">
                                                     <form:input type="number" class="form-control" name="sum" pattern="[0-9]*"
-                                                                path="payment.sum" step="10" min="0"/>
+                                                                path="payment.sum" min="0"/>
                                                 </div>
                                             </div>
                                         </div>

@@ -50,11 +50,15 @@ $('[data-toggle="modal"]').on('click', function (e) {
             $("#depositTerm").text(deposit.depositType.term);
             $("#depositSum").text(deposit.depositType.minSum);
             $("#deposiеCapitalization").text(deposit.depositType.capitalization);
-            var startDate = new Date(deposit.startDate).format("dd-mm-yyyy");
+            var momentDate = moment(deposit.startDate, 'YYYY-MM-DD HH:mm:ss.S');
+            var startDate = momentDate.toDate();
+
+            momentDate = moment(deposit.endDate, 'YYYY-MM-DD HH:mm:ss.S');
+            var endDate = momentDate.toDate();
             $("#depositClient").text(deposit.client.name);
             $("#depositUser").text(deposit.user.name);
             $("#depositStart").text(startDate);
-            $("#depositEnd").text(deposit.endDate.format("dd-mm-yyyy"));
+            $("#depositEnd").text(endDate.format('dd-mm-yyyy'));
             $("#depositCurSum").text(deposit.sum);
 
             $("#depositCurrentProfit").text(deposit.endDate.format("dd-mm-yyyy"));
@@ -71,4 +75,5 @@ $(document).ready(function ($) {
     $(".passportNumber").inputmask({"mask": "9999999"});
     $(".passportSeries").inputmask({"mask":"AA"});
     $(".paymentNumber").inputmask({"mask":"999999"});
+    $('.date').inputmask('9999-99-99', {placeholder: "yyyy-mm-dd"});
 });
