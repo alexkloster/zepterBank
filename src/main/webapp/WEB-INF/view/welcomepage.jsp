@@ -44,7 +44,7 @@
                                         <a class="nav-link" href="/welcome"><i class="fa fa-home"></i> </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/about">О нас</a>
+                                        <a class="nav-link" href="">О нас</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/contacts">Контакты</a>
@@ -89,7 +89,7 @@
                                         <a class="nav-link" href="/exchange">Калькулятор валют</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/about">О нас</a>
+                                        <a class="nav-link" href="">О нас</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/contacts">Контакты</a>
@@ -128,7 +128,7 @@
                                         <a class="nav-link" href="/statistic">Статистика</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/about">О нас</a>
+                                        <a class="nav-link" href="">О нас</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/contacts">Контакты</a>
