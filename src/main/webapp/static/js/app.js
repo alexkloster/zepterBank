@@ -55,10 +55,11 @@ $('[data-toggle="modal"]').on('click', function (e) {
 
             momentDate = moment(deposit.endDate, 'YYYY-MM-DD HH:mm:ss.S');
             var endDate = momentDate.toDate();
+
             $("#depositClient").text(deposit.client.name);
             $("#depositUser").text(deposit.user.name);
-            $("#depositStart").text(startDate);
-            $("#depositEnd").text(endDate.format('dd-mm-yyyy'));
+            $("#depositStart").text(formatDate(startDate));
+            $("#depositEnd").text(formatDate(endDate));
             $("#depositCurSum").text(deposit.sum);
 
             $("#depositCurrentProfit").text(deposit.endDate.format("dd-mm-yyyy"));
@@ -77,3 +78,19 @@ $(document).ready(function ($) {
     $(".paymentNumber").inputmask({"mask":"999999"});
     $('.date').inputmask('9999-99-99', {placeholder: "yyyy-mm-dd"});
 });
+
+
+function formatDate(date) {
+    var monthNames = [
+        "янв", "фев", "мар",
+        "фпр", "май", "июн", "июл",
+        "авг", "сен", "окт",
+        "ноя", "дек"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
