@@ -28,8 +28,8 @@
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="page-container">
-    <div class="content-wrap">
+<div class="page-container bg-light">
+    <div class="content-wrap bg-white">
         <div role="navigation">
             <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
                 <div class="container">
@@ -80,13 +80,10 @@
                 <div class="container-fluid " id="homediv">
 
                     <div class="row">
-
-                        <div class="jumbotron center">
-
-                            <h1 align="center">Welcome to Zepter Bank</h1>
+                        <div class="col center">
+                            <h1 align="center">Добро пожаловать в Цептер банк!</h1>
                             <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
                         </div>
-
                     </div>
                 </div>
             </c:when>
@@ -96,68 +93,57 @@
 
     <br>
     <footer class="navbar navbar-light bg-light">
-        <div class="container">
-            <div class="navbar-inner">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
-                                                                              href="/welcome">Цептер Банк</a>»</span>
-                        </div>
-                        <div class="foo_info">
-                            Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
-                            банковской деятельности. <br>
-                            <br>
-                        </div>
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="copy">© 2019 <span class="nowrap">ЗАО «<a class="spec_decor"
+                                                                          href="/welcome">Цептер Банк</a>»</span>
                     </div>
-
-                    <div class="col-lg-4">
-                        <h4>Информация о банке</h4>
-                        <ul class="foo_nav">
-
-                            <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
-
-                            <li><a href="/jobs/" class="undecor">Вакансии</a></li>
-
-                            <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
-
-                            <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
-
-                        </ul>
-                        <div class="social_block">
-                            <div class="social_block_grid">
-                                <a href="https://www.facebook.com/myzepterbank/" target="_blank"
-                                   class="social_block_item">
-                                    <img src="/static/images/social_facebook.svg" alt="facebook">
-                                </a>
-                                <a href="https://vk.com/myzepterbank" target="_blank" class="social_block_item">
-                                    <img src="/static/images/social_vk.svg" alt="vk">
-                                </a>
-                                <a href="https://www.instagram.com/zepterbank/" target="_blank"
-                                   class="social_block_item">
-                                    <img src="/static/images/social_instagram.svg" alt="instargram">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <h4>Клиенту</h4>
-                        <ul class="foo_nav">
-
-                            <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
-
-                            <li><a href="/offices/" class="undecor">Как нас найти</a></li>
-
-                            <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
-
-                            <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
-
-                            <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
-
-                        </ul>
+                    <div class="foo_info">
+                        Лицензия Национального банка Республики Беларусь N31 от 28 мая 2013 года на осуществление
+                        банковской деятельности. <br>
+                        <br>
                     </div>
                 </div>
 
+                <div class="col-lg-4">
+                    <h4>Информация о банке</h4>
+                    <ul class="foo_nav">
+
+                        <li><a href="/jobs" class="undecor">Вакансии</a></li>
+
+                        <li><a href="/requisites" class="undecor">Реквизиты</a></li>
+
+                    </ul>
+                    <div class="social_block">
+                        <div class="social_block_grid">
+                            <a href="https://www.facebook.com/myzepterbank/" target="_blank"
+                               class="social_block_item">
+                                <img src="/static/images/social_facebook.svg" alt="facebook">
+                            </a>
+                            <a href="https://vk.com/myzepterbank" target="_blank" class="social_block_item">
+                                <img src="/static/images/social_vk.svg" alt="vk">
+                            </a>
+                            <a href="https://www.instagram.com/zepterbank/" target="_blank"
+                               class="social_block_item">
+                                <img src="/static/images/social_instagram.svg" alt="instargram">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4>Клиенту</h4>
+                    <ul class="foo_nav">
+
+                        <li><a href="/contacts" class="undecor">Контакты</a></li>
+
+                        <li><a href="/offices" class="undecor">Как нас найти</a></li>
+
+                        <li><a href="/welcome" class="undecor">Цептер Онлайн</a></li>
+
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>

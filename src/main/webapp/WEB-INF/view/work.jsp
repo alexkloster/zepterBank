@@ -23,127 +23,35 @@
 <body>
 <div class="page-container bg-light">
     <div class="content-wrap bg-white">
-
-        <c:choose>
-            <c:when test="${NAVIGATION_MODE == null}">
-                <div role="navigation">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-                        <div class="container">
-                            <a class="navbar-brand" href="/welcome">
-                                <img src="static/images/logo.png" alt="" height="50">
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarResponsive"
-                                    aria-controls="navbarResponsive" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarResponsive">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="/welcome"><i class="fa fa-home"></i> </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/bank/about">О нас</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/bank/contacts">Контакты</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/login">Войти</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
+        <div role="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+                <div class="container">
+                    <a class="navbar-brand" href="/welcome">
+                        <img src="static/images/logo.png" alt="" height="50">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/welcome"><i class="fa fa-home"></i> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/bank/about">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/bank/contacts">Контакты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Войти</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </c:when>
-            <c:when test="${NAVIGATION_MODE == 'user'}">
-                <div role="navigation">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-                        <div class="container">
-                            <a class="navbar-brand" href="/user/userPage">
-                                <img src="static/images/logo.png" alt="" height="50">
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarUserResponsive"
-                                    aria-controls="navbarUserResponsive" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarUserResponsive">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="/userPage"><i class="fa fa-home"></i> </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/payment">Платежи</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/deposit">Депозиты</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/credit">Кредиты</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/exchange">Калькулятор валют</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/about">О нас</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/contacts">Контакты</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/welcome">Выйти</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </c:when>
-            <c:when test="${NAVIGATION_MODE == 'admin'}">
-                <div role="navigation">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-                        <div class="container">
-                            <a class="navbar-brand" href="/adminPage">
-                                <img src="static/images/logo.png" alt="" height="50">
-                            </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarAdminResponsive"
-                                    aria-controls="navbarAdminResponsive" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarAdminResponsive">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="/adminPage"><i class="fa fa-home"></i> </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/users">Работа с пользователями</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/statistic">Статистика</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/bank/about">О нас</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/bank/contacts">Контакты</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/welcome">Выйти</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </c:when>
-
-        </c:choose>
+            </nav>
+        </div>
 
         <c:choose>
             <c:when test="${mode=='MODE_HOME' }">

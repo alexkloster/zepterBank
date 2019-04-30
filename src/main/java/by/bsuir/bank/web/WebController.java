@@ -27,6 +27,7 @@ public class WebController {
             UserEntity user = new UserEntity("user", "user", "user", Role.USER, true );
             userService.registration(user);
         }
+        checkUser(request);
         request.setAttribute("mode", "MODE_HOME");
         return "welcomepage";
     }
@@ -63,6 +64,26 @@ public class WebController {
 
         }
     }
+
+    @RequestMapping("/requisites")
+    public String requisites(HttpServletRequest request) {
+        checkUser(request);
+        return "requisites";
+
+
+    }
+
+
+    private void checkUser(HttpServletRequest request) {
+        if (userService.getCurrentUser() == null) {
+            request.setAttribute("NAVIGATION_MODE", null);
+        } else if (userService.getCurrentUser().getRole() == Role.ADMINISTRATOR) {
+            request.setAttribute("NAVIGATION_MODE", "admin");
+        } else {
+            request.setAttribute("NAVIGATION_MODE", "user");
+        }
+    }
+
 
 
 }

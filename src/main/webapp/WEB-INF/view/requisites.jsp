@@ -23,7 +23,6 @@
 <body>
 <div class="page-container bg-light">
     <div class="content-wrap bg-white">
-
         <c:choose>
             <c:when test="${NAVIGATION_MODE == null}">
                 <div role="navigation">
@@ -145,196 +144,179 @@
 
         </c:choose>
 
-        <c:choose>
-            <c:when test="${mode=='MODE_HOME' }">
-
-                <div class="container-fluid " id="homediv">
-
-                    <div class="row">
-
-                        <div class="jumbotron center">
-
-                            <h1 align="center">Добро пожаловать в цептер банк!</h1>
-                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
-                        </div>
-
-                    </div>
-
-
+        <div class="container">
+            <section class="content_header">
+                <div class="wrapper clearfix">
+                    <h1 class="h1">Реквизиты</h1>
                 </div>
+            </section>
+            <section class="content_area">
+                <div class="row">
+                    <div class="wrapper formated_txt">
 
-
-            </c:when>
-
-            <c:when test="${mode=='MODE_REGISTER' }">
-                <div class="container text-center">
-                    <h3>New Registration</h3>
-                    <hr>
-                    <form class="form-horizontal" method="POST" action="save-user">
-                        <input type="hidden" name="id" value="${user.id }"/>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Username</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="username"
-                                       value="${user.username }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">First Name</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="firstname"
-                                       value="${user.firstname }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Last Name</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="lastname"
-                                       value="${user.lastname }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Age </label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" name="age"
-                                       value="${user.age }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Password</label>
-                            <div class="col-md-7">
-                                <input type="password" class="form-control" name="password"
-                                       value="${user.password }"/>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <input type="submit" class="btn btn-primary" value="Register"/>
-                        </div>
-                    </form>
-                </div>
-            </c:when>
-            <c:when test="${mode=='ALL_USERS' }">
-                <div class="container text-center" id="tasksDiv">
-                    <h3>All Users</h3>
-                    <hr>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>UserName</th>
-                                <th>First Name</th>
-                                <th>LastName</th>
-                                <th>Age</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
-                            </tr>
-                            </thead>
+                        <p>
+                            Полное наименование:<br>
+                        </p>
+                        <ul>
+                            <li>на русском языке: Закрытое акционерное общество «Цептер Банк»</li>
+                            <li>
+                                на белорусском языке: Закрытае акцыянернае таварыства «Цэптар Банк»
+                            </li>
+                            <li>
+                                на английском языке: Closed joint-stock company «Zepter Bank»
+                            </li>
+                        </ul>
+                        <p>
+                            Сокращенное наименование:<br>
+                        </p>
+                        <ul>
+                            <li>на русском языке: ЗАО «Цептер Банк»</li>
+                            <li>
+                                на белорусском языке: ЗАТ «Цэптар Банк»
+                            </li>
+                            <li>
+                                на английском языке: CJSC «Zepter Bank»<br>
+                            </li>
+                        </ul>
+                        <p>
+                            Местонахождение:&nbsp; <br>
+                            ул. Платонова, 1 Б, 220034, г. Минск, Республика Беларусь<br>
+                        </p>
+                        <p>
+                            Время работы: <br>
+                            Понедельник - четверг - 9.00 - 17.00<br>
+                            Пятница - 9.00 - 15.30<br>
+                            Выходной: суббота, воскресенье<br>
+                        </p>
+                        <p>
+                            Дата регистрации:&nbsp;13 ноября&nbsp;2008 года
+                        </p>
+                        <p>
+                            Юридический статус: Закрытое акционерное общество<br>
+                            <br>
+                            Зарегистрированный уставный фонд: 14 948 700&nbsp;белорусских рублей.
+                        </p>
+                        <p>
+                            S.W.I.F.T. - ZEPTBY2X<br>
+                            ОКПО – 378312405000<br>
+                            УНП – 807000214<br>
+                            BIC <i>-&nbsp;</i>ZEPTBY2X.<br>
+                            <br>
+                            ЗАО "Цептер Банк" не входит в состав банковского холдинга и (или) банковской группы.
+                        </p>
+                        <p>
+                            Акционеры: <br>
+                            Акционерное Общество «ХОУМ АРТ &amp; СЕЙЛС СЕРВИСИЗ АГ», Швейцарская конфедерация (99,76%
+                            доля в уставном фонде) и Общество с Ограниченной Ответственностью «ЕС Консалт ГмбХ»,
+                            Германия (0,24% доля в уставном фонде). Конечный бенефициарный собственник - г-н Филипп
+                            Цептер&nbsp; (Монако).<br>
+                            <br>
+                            Сведения о бенефициарных собственниках ЗАО "Цептер Банк" в отношении не менее 5 процентов
+                            акций банка.&nbsp;
+                        </p>
+                        <p>
+                        </p>
+                        <b> </b>
+                        <table border="1" cellspacing="0" cellpadding="2" class="table table-striped">
                             <tbody>
-                            <c:forEach var="user" items="${users }">
-                                <tr>
-                                    <td>${user.id}</td>
-                                    <td>${user.username}</td>
-                                    <td>${user.firstname}</td>
-                                    <td>${user.lastname}</td>
-                                    <td>${user.age}</td>
-                                    <td><a href="/delete-user?id=${user.id }"><span
-                                            class="glyphicon glyphicon-trash"></span></a></td>
-                                    <td><a href="/edit-user?id=${user.id }"><span
-                                            class="glyphicon glyphicon-pencil"></span></a></td>
-                                </tr>
-                            </c:forEach>
+                            <tr>
+                                <td colspan="2" align="center" style="text-align: center;">
+                                    Акционеры (учредители) банка
+                                </td>
+                                <td rowspan="2" align="center">
+                                    <br>
+                                    <br>
+                                    Лица, являющиеся бенефициарными собственниками банка (фамилия, собственное имя,
+                                    отчество (если таковое имеется), резидентом какой страны является, учетный номер
+                                    плательщика, основной вид деятельности)
+                                </td>
+                                <td rowspan="2" align="center">
+                                    <br>
+                                    <br>
+                                    Взаимосвязи между банком, его акционерами (учредителями), акционерами (участниками,
+                                    собственниками имущества) акционеров банка и иными бенефициарными собственниками
+                                </td>
+                                <td rowspan="2" align="center">
+                                    <br>
+                                    <br>
+                                    Доля акций банка, находящихся в косвенном владении бенефициарного собственника
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <br>
+                                    <br>
+                                    полное и сокращенное наименование юридического лица (фамилия, собственное имя,
+                                    отчество (если таковое имеется) физического лица), иные данные
+                                </td>
+                                <td align="center">
+                                    <br>
+                                    <br>
+                                    доля акций банка (процентное отношение количества акций, принадлежащих акционеру, к
+                                    общему количеству акций)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    Home Art &amp; Sales Services AG
+                                </td>
+                                <td align="right">
+                                    99,76%
+                                </td>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="left">
+                                    UBA United Business Activities Holding AG
+                                </td>
+                                <td align="left">
+                                    100% Home Art &amp; Sales Services AG
+                                </td>
+                                <td align="right">
+                                    100%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="center">
+                                    &nbsp;
+                                </td>
+                                <td align="left">
+                                    г-н Филипп Цептер
+                                </td>
+                                <td align="left">
+                                    100% UBA United Business Activities Holding AG
+                                </td>
+                                <td align="right">
+                                    100%
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
-                    </div>
+                        <p>
+                            <br>
+                        </p></div>
                 </div>
-            </c:when>
+            </section>
+        </div>
 
-            <c:when test="${mode=='MODE_UPDATE' }">
-                <div class="container text-center">
-                    <h3>Update User</h3>
-                    <hr>
-                    <form class="form-horizontal" method="POST" action="save-user">
-                        <input type="hidden" name="id" value="${user.id }"/>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Username</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="username"
-                                       value="${user.username }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">First Name</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="firstname"
-                                       value="${user.firstname }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Last Name</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="lastname"
-                                       value="${user.lastname }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Age </label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" name="age"
-                                       value="${user.age }"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Password</label>
-                            <div class="col-md-7">
-                                <input type="password" class="form-control" name="password"
-                                       value="${user.password }"/>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <input type="submit" class="btn btn-primary" value="Update"/>
-                        </div>
-                    </form>
-                </div>
-            </c:when>
-
-            <c:when test="${mode=='MODE_LOGIN' }">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 offset-lg-4">
-                            <h3>Авторизация</h3>
-                            <hr>
-                            <form class="form-horizontal" method="POST" action="/login-user">
-                                <c:if test="${not empty error }">
-                                    <div class="alert alert-danger">
-                                        <c:out value="${error }"></c:out>
-                                    </div>
-                                </c:if>
-                                <div class="form-group">
-                                    <label class="control-label">Логин</label>
-                                    <div>
-                                        <input type="text" class="form-control" name="login"
-                                               value="${user.login }"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label">Пароль</label>
-                                    <div>
-                                        <input type="password" class="form-control" name="password"
-                                               value="${user.password }"/>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <input type="submit" class="btn btn-primary" value="Войти"/>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </c:when>
-        </c:choose>
     </div>
-
 
     <br>
     <footer class="navbar navbar-light bg-light">
@@ -355,7 +337,9 @@
                     <h4>Информация о банке</h4>
                     <ul class="foo_nav">
 
+
                         <li><a href="/jobs" class="undecor">Вакансии</a></li>
+
 
                         <li><a href="/requisites" class="undecor">Реквизиты</a></li>
 

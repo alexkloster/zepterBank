@@ -400,13 +400,10 @@
                     <h4>Информация о банке</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/newsroom/" class="undecor">Пресс-центр</a></li>
+                        <li><a href="/jobs" class="undecor">Вакансии</a></li>
 
-                        <li><a href="/jobs/" class="undecor">Вакансии</a></li>
 
-                        <li><a href="/bank/information/" class="undecor">Полезная информация</a></li>
-
-                        <li><a href="/bank/contacts/requisites/" class="undecor">Реквизиты</a></li>
+                        <li><a href="/requisites" class="undecor">Реквизиты</a></li>
 
                     </ul>
                     <div class="social_block">
@@ -430,15 +427,11 @@
                     <h4>Клиенту</h4>
                     <ul class="foo_nav">
 
-                        <li><a href="/bank/contacts" class="undecor">Контакты</a></li>
+                        <li><a href="/contacts" class="undecor">Контакты</a></li>
 
-                        <li><a href="/offices/" class="undecor">Как нас найти</a></li>
+                        <li><a href="/offices" class="undecor">Как нас найти</a></li>
 
-                        <li><a href="/personal/cards/ibank/" class="undecor">Цептер Онлайн</a></li>
-
-                        <li><a href="/bank/information/rates/" class="undecor">Перечни вознаграждений</a></li>
-
-                        <li><a href="/personal/services/currency/" class="undecor">Курсы валют</a></li>
+                        <li><a href="/welcome" class="undecor">Цептер Онлайн</a></li>
 
                     </ul>
                 </div>
