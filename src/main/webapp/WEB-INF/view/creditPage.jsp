@@ -55,10 +55,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/payment">Платежи</a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/deposit">Депозиты</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="/credit">Кредиты</a>
                             </li>
                             <li class="nav-item">
@@ -80,15 +80,15 @@
         </div>
         <br>
         <c:choose>
-            <c:when test="${mode == 'MODE_DEPOSIT'}">
+            <c:when test="${mode == 'MODE_CREDIT'}">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Последние вклады, открытые пользователем ${currentUser.name}</h5>
+                            <h5>Последние кредиты, выданные пользователем ${currentUser.name}</h5>
                         </div>
                         <div class="col-lg-6">
                             <div class="float-right">
-                                <a class="btn btn-primary" href="/new-deposit">Открыть депозит</a>
+                                <a class="btn btn-primary" href="/new-credit">Выдать кредит</a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Депозит</th>
+                                    <th>Кредит</th>
                                     <th>Дата открытия</th>
                                     <th>Дата окончания</th>
                                     <th>Сумма</th>
@@ -109,18 +109,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="deposit" items="${depositList}">
+                                <c:forEach var="credit" items="${creditList}">
                                     <tr>
-                                        <td>${deposit.depositType.description}</td>
-                                        <td><fmt:formatDate value="${deposit.startDate}" pattern="dd-MM-yyyy"/></td>
-                                        <td><fmt:formatDate value="${deposit.endDate}" pattern="dd-MM-yyyy"/></td>
-                                        <td>${deposit.sum}</td>
-                                        <td>${deposit.term}</td>
-                                        <td>${deposit.client.name}</td>
+                                        <td>${credit.creditType.description}</td>
+                                        <td><fmt:formatDate value="${credit.startDate}" pattern="dd-MM-yyyy"/></td>
+                                        <td><fmt:formatDate value="${credit.endDate}" pattern="dd-MM-yyyy"/></td>
+                                        <td>${credit.sum}</td>
+                                        <td>${credit.term}</td>
+                                        <td>${credit.client.name}</td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm"
                                                     data-target="#depositInfo" data-toggle="modal"
-                                                    data-val="${deposit.id}"><i class="fa fa-info"></i></button>
+                                                    data-val="${credit.id}"><i class="fa fa-info"></i></button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -131,13 +131,13 @@
                 </div>
             </c:when>
 
-            <c:when test="${mode == 'MODE_NEW_DEPOSIT'}">
+            <c:when test="${mode == 'MODE_NEW_CREDIT'}">
 
                 <div class="container">
 
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5>Открытие нового вклада пользователем ${currentUser.name}</h5>
+                            <h5>Выдача нового кредита пользователем ${currentUser.name}</h5>
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@
                     <c:choose>
                         <c:when test="${client_mode == null}">
                             <div class="row">
-                                <form class="form-horizontal col-lg-12" method="POST" action="/deposit-find-client">
+                                <form class="form-horizontal col-lg-12" method="POST" action="/credit-find-client">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="form-group">
@@ -182,7 +182,7 @@
                                 Такого клиента нет, необходимо добавить нового.
                             </div>
                             <div class="row">
-                                <form class="form-horizontal col-lg-12" method="POST" action="/deposit-save-client">
+                                <form class="form-horizontal col-lg-12" method="POST" action="/credit-save-client">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group">
@@ -252,7 +252,7 @@
                         <c:when test="${client_mode == 'EXISTS'}">
                             <div class="row">
                                 <form class="form-horizontal col-lg-12" method="POST"
-                                      action="/save-deposit">
+                                      action="/save-credit">
 
                                     <div class="row">
                                         <h4>Клиент:</h4>
@@ -318,14 +318,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <form:input path="deposit.id" type="hidden" name="id"/>
+                                            <form:input path="credit.id" type="hidden" name="id"/>
                                             <div class="form-group">
-                                                <label class="control-label col-lg-12">Вклад</label>
-                                                <form:input type="hidden" path="deposit.depositType.id"
-                                                            name="depositType" id="depositType"/>
+                                                <label class="control-label col-lg-12">Кредит</label>
+                                                <form:input type="hidden" path="credit.creditType.id" name="creditType"
+                                                            id="creditType"/>
                                                 <div class="col-lg-12">
-                                                    <select class="form-control" id="depositTypeSelect">
-                                                        <c:forEach var="type" items="${depositTypeList}">
+                                                    <select class="form-control" id="creditTypeSelect">
+                                                        <c:forEach var="type" items="${creditTypeList}">
                                                             <option value="${type.id}"><c:out
                                                                     value="${type.description}"/></option>
                                                         </c:forEach>
@@ -337,10 +337,10 @@
                                             <label class="control-label col-lg-12">Сумма</label>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <form:input type="number" class="form-control" id="depositSumm"
+                                                    <form:input type="number" class="form-control" id="creditSumm"
                                                                 pattert="[0-9]*"
-                                                                name="depositSumm"
-                                                                path="deposit.sum"
+                                                                name="creditSum"
+                                                                path="credit.sum"
                                                                 step="100"
                                                                 required="true"/>
                                                 </div>
@@ -351,10 +351,10 @@
                                             <div class="form-group">
                                                 <label class="control-label col-lg-10">Срок</label>
                                                 <div class="col-lg-12">
-                                                    <form:input type="number" class="form-control" id="depositTerm"
+                                                    <form:input type="number" class="form-control" id="creditTerm"
                                                                 pattern="[0-9]*"
-                                                                name="depositTerm"
-                                                                path="deposit.term"
+                                                                name="creditTerm"
+                                                                path="credit.term"
                                                                 required="true"/>
                                                 </div>
                                             </div>

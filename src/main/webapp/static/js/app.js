@@ -1,10 +1,56 @@
-$('#depositTypeId').on('change', function () {
-    var depositType = document.getElementById("depositTypeId");
+$('#paymentTypeSelect').on('change', function () {
 
-    var depositId = depositType.options[depositType.selectedIndex].value;
+    var combo = document.getElementById("paymentTypeSelect");
+
+    $("#paymentType").val(combo.options[combo.selectedIndex].value);
+
+});
+
+
+$('#creditTypeSelect').on('change', function () {
+
+    var combo = document.getElementById("creditTypeSelect");
+
+
+    var type = combo.options[combo.selectedIndex].value;
+
+    $("#creditType").val(type);
+
     $.ajax({
 
-        url: "/getDepositType/" + depositId,
+        url: "/getCreditType/" + type,
+        type: "GET",
+
+        contentType: 'application/json; charset=utf-8',
+        success: function (resultData) {
+            $("#creditSumm").attr({
+                "min": resultData.minSum,
+                "data-suffix": resultData.currency.currencyName
+            });
+
+            $("#creditTerm").attr({
+                "min": resultData.term,
+                "step": resultData.term
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        },
+
+        timeout: 120000
+    });
+
+});
+
+$('#depositTypeSelect').on('change', function () {
+
+    var combo = document.getElementById("depositTypeSelect");
+
+    var type = combo.options[combo.selectedIndex].value;
+
+    $("#depositType").val(type);
+    $.ajax({
+
+        url: "/getDepositType/" + type,
         type: "GET",
 
         contentType: 'application/json; charset=utf-8',
@@ -23,16 +69,8 @@ $('#depositTypeId').on('change', function () {
         },
 
         timeout: 120000});
-});
-
-$('#paymentTypeSelect').on('change', function () {
-
-    var combo = document.getElementById("paymentTypeSelect");
-
-    $("#paymentType").val(combo.options[combo.selectedIndex].value);
 
 });
-
 
 $('[data-toggle="modal"]').on('click', function (e) {
     var $target = $(e.target);
@@ -107,4 +145,27 @@ function formatDate(date) {
     var year = date.getFullYear();
 
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
+
+
+function formatDateFromPattern(date, pattern) {
+
+    var momentDate = moment(date, pattern);
+    var d = momentDate.toDate();
+
+
+    var monthNames = [
+        "янв", "фев", "мар",
+        "aпр", "май", "июн", "июл",
+        "авг", "сен", "окт",
+        "ноя", "дек"
+    ];
+
+    var day = d.getDate();
+    var monthIndex = d.getMonth();
+    var year = d.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+
+
 }

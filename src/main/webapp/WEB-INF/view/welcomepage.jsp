@@ -60,7 +60,7 @@
 
                 <div class="jumbotron center">
 
-                    <h1 align="center">Welcome to Zepter Bank</h1>
+                    <h1 align="center">Добро пожаловать в цептер банк!</h1>
                     <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
                 </div>
 
@@ -206,36 +206,37 @@
 
     <c:when test="${mode=='MODE_LOGIN' }">
         <div class="container text-center">
-            <h3>User Login</h3>
-            <hr>
-            <form class="form-horizontal" method="POST" action="/login-user">
-                <c:if test="${not empty error }">
-                    <div class="alert alert-danger">
-                        <c:out value="${error }"></c:out>
+            <div class="col-lg-4 col-lg-offset-4 centered">
+                <h3>Авторизация</h3>
+                <hr>
+                <form class="form-horizontal" method="POST" action="/login-user">
+                    <c:if test="${not empty error }">
+                        <div class="alert alert-danger">
+                            <c:out value="${error }"></c:out>
+                        </div>
+                    </c:if>
+                    <div class="form-group">
+                        <label class="control-label">Логин</label>
+                        <div>
+                            <input type="text" class="form-control" name="login"
+                                   value="${user.login }"/>
+                        </div>
                     </div>
-                </c:if>
-                <div class="form-group">
-                    <label class="control-label col-md-3">Login</label>
-                    <div class="col-md-7">
-                        <input type="text" class="form-control" name="login"
-                               value="${user.login }"/>
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <div>
+                            <input type="password" class="form-control" name="password"
+                                   value="${user.password }"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3">Password</label>
-                    <div class="col-md-7">
-                        <input type="password" class="form-control" name="password"
-                               value="${user.password }"/>
+                    <div class="form-group ">
+                        <input type="submit" class="btn btn-primary" value="Login"/>
                     </div>
-                </div>
-                <div class="form-group ">
-                    <input type="submit" class="btn btn-primary" value="Login"/>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </c:when>
 </c:choose>
-
 
 
 <br>

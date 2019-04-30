@@ -4,17 +4,20 @@ import by.bsuir.bank.dao.entity.client.ClientEntity;
 import by.bsuir.bank.dao.entity.deposit.DepositEntity;
 import by.bsuir.bank.dao.entity.deposit.DepositTypeEntity;
 import by.bsuir.bank.dao.entity.user.UserEntity;
-import by.bsuir.bank.enumerated.PaymentType;
 import by.bsuir.bank.service.client.ClientService;
 import by.bsuir.bank.service.deposit.DepositService;
 import by.bsuir.bank.service.deposit.DepositTypeService;
 import by.bsuir.bank.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,6 +34,12 @@ public class DepositController {
 
     @Autowired
     private DepositTypeService depositTypeService;
+
+    @InitBinder
+    public void initBinder(final WebDataBinder binder) {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-dd-MM");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
 
 
     @RequestMapping("/deposit")
@@ -64,7 +73,6 @@ public class DepositController {
         client = clientService.getBySeriesAndNumber(client);
         List<DepositTypeEntity> depositTypeList = depositTypeService.getAllDepositTypes();
 
-        request.setAttribute("paymentTypes", PaymentType.values());
         if(client.getId() == null) {
             request.setAttribute("client_mode", "NEW");
         } else {
@@ -79,6 +87,12 @@ public class DepositController {
         request.setAttribute("client", client);
         request.setAttribute("mode", "MODE_NEW_DEPOSIT");
         return "depositPage";
+    }
+
+    @RequestMapping("/deposit-save-client")
+    public String saveClient(@ModelAttribute ClientEntity client, HttpServletRequest request, Model model) {
+        client = clientService.saveClient(client);
+        return findClient(client, request, model);
     }
 
     @RequestMapping("/save-deposit")
