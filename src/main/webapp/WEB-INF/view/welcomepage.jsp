@@ -155,7 +155,7 @@
                         <div class="jumbotron center">
 
                             <h1 align="center">Добро пожаловать в цептер банк!</h1>
-                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
+                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="40%"/></center>
                         </div>
 
                     </div>

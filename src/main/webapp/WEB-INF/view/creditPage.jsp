@@ -314,7 +314,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>Вклад</h4>
+                                        <h4>Кредит</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">

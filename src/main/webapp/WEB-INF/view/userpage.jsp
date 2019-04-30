@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="col center">
                             <h1 align="center">Добро пожаловать в Цептер банк!</h1>
-                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
+                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="40%"/></center>
                         </div>
                     </div>
                 </div>

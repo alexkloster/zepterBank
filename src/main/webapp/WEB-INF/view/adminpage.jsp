@@ -42,6 +42,12 @@
                                 <a class="nav-link" href="/users">Работа с пользователями</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/users">Вклады</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users">Кредиты</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/statistic">Статистика</a>
                             </li>
                             <li class="nav-item">
@@ -69,8 +75,8 @@
 
                         <div class="jumbotron center">
 
-                            <h1 align="center">Добро пожаловать в Цептер Банк!k</h1>
-                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="60%"/></center>
+                            <h1 align="center">Добро пожаловать в Цептер Банк!</h1>
+                            <center><img src="static/images/templatemo_image_01.png" alt="Bank" width="40%"/></center>
                         </div>
 
                     </div>
@@ -154,13 +160,13 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Пароль</label>
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" name="password"
+                                        <input type="password" class="form-control" name="password"
                                                value="${user.password}"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group ">
-                                    <input type="submit" class="btn btn-primary" value="Update"/>
+                                    <input type="submit" class="btn btn-primary" value="Сохранить"/>
                                 </div>
                             </form>
                         </div>
